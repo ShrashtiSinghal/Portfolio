@@ -26,7 +26,7 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18'
-        cache: 'yarn'
+        # Remove cache to avoid lock file issues
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
@@ -36,10 +36,11 @@ jobs:
         if [ -d "frontend" ]; then
           echo "Installing dependencies in frontend directory..."
           cd frontend
-          yarn install
+          # Use npm instead of yarn to avoid lock file issues
+          npm install
         else
           echo "Installing dependencies in root directory..."
-          yarn install
+          npm install
         fi
 
     - name: Build 🔧
@@ -47,32 +48,19 @@ jobs:
         if [ -d "frontend" ]; then
           echo "Building from frontend directory..."
           cd frontend
-          yarn build
+          npm run build
         else
           echo "Building from root directory..."
-          yarn build
+          npm run build
         fi
       env:
         CI: false
-
-    - name: Prepare Build Output 📁
-      run: |
-        if [ -d "frontend/build" ]; then
-          echo "Build found in frontend/build"
-          BUILD_PATH="./frontend/build"
-        elif [ -d "build" ]; then
-          echo "Build found in root build"
-          BUILD_PATH="./build"
-        else
-          echo "No build directory found!"
-          exit 1
-        fi
-        echo "BUILD_PATH=$BUILD_PATH" >> $GITHUB_ENV
+        NODE_OPTIONS: "--max_old_space_size=4096"
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: ${{ env.BUILD_PATH }}
+        path: ./frontend/build
 
   deploy:
     environment:
