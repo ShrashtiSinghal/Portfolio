@@ -358,11 +358,11 @@ const Projects = () => {
                   </Button>
                 </div>
                 
-                <div className="mb-6">
+                <div className="mb-4 sm:mb-6">
                   <img 
                     src={selectedProject.image} 
                     alt={selectedProject.title}
-                    className="w-full h-64 object-cover rounded-lg"
+                    className="w-full h-48 sm:h-56 lg:h-64 object-cover rounded-lg"
                   />
                 </div>
                 
