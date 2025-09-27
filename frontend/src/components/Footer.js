@@ -81,7 +81,7 @@ const Footer = () => {
                     <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-teal-500 rounded-lg transform rotate-12 animate-pulse-slow"></div>
                     <h3 className="text-2xl font-black">
                       <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Shrashti</span>
-                      <span className="bg-gradient-to-r from-orange-400 to-teal-400 bg-clip-text text-transparent ml-2 neon-glow-orange">Singhal</span>
+                      <span className="bg-gradient-to-r from-orange-400 to-teal-400 bg-clip-text text-transparent ml-2">Singhal</span>
                     </h3>
                   </div>
                   <div className="neo-brutal-btn-small bg-gradient-to-r from-teal-500 to-orange-500 text-black font-black px-4 py-2 inline-block">
