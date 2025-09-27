@@ -50,10 +50,16 @@ const Projects = () => {
     };
     window.addEventListener('resize', handleResize);
 
+    // Fallback timer to ensure content is visible after 2 seconds
+    const fallbackTimer = setTimeout(() => {
+      setIsVisible(true);
+    }, 2000);
+
     return () => {
       observer.disconnect();
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
+      clearTimeout(fallbackTimer);
     };
   }, []);
 
