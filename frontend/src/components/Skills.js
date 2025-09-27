@@ -256,7 +256,7 @@ const Skills = () => {
               <div className="group">
                 <div className="isometric-card hover:scale-110 transition-all duration-300">
                   <div className="text-5xl font-black bg-gradient-to-r from-orange-400 to-teal-400 bg-clip-text text-transparent animate-gradient-x mb-2">
-                    15+
+                    15
                   </div>
                   <div className="text-gray-300 font-bold tracking-wide">MAJOR PROJECTS DELIVERED</div>
                 </div>
