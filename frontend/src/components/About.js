@@ -49,7 +49,7 @@ const About = () => {
       title: "TEAM BUILDER",
       description: "Building and mentoring high-performing data science teams, driving innovation at scale",
       color: "from-teal-500 to-teal-400",
-      neon: "neon-glow-teal"
+      neon: ""
     },
     {
       icon: <Target className="w-8 h-8" />,
@@ -63,7 +63,7 @@ const About = () => {
       title: "THOUGHT LEADER",
       description: "Author and contributor to leading publications on AI, ML, and data science best practices",
       color: "from-teal-500 to-teal-400",
-      neon: "neon-glow-teal"
+      neon: ""
     }
   ];
 
