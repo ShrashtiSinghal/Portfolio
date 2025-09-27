@@ -42,7 +42,7 @@ const About = () => {
       title: "AI INNOVATION LEADER",
       description: "Pioneering secure, scalable AI/ML systems with advanced LLM-based threat detection and RAG pipelines",
       color: "from-orange-500 to-orange-400",
-      neon: "neon-glow-orange"
+      neon: ""
     },
     {
       icon: <Users className="w-8 h-8" />,
@@ -56,7 +56,7 @@ const About = () => {
       title: "BUSINESS IMPACT",
       description: "Translating complex AI technologies into actionable insights for C-suite stakeholders",
       color: "from-orange-500 to-orange-400",
-      neon: "neon-glow-orange"
+      neon: ""
     },
     {
       icon: <BookOpen className="w-8 h-8" />,
