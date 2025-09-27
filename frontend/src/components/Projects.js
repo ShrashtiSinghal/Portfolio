@@ -174,8 +174,8 @@ const Projects = () => {
         </div>
 
         {/* Filters and View Toggle with Glass Morphism */}
-        <div className={`mb-8 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="glass-card bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-md">
+        <div className={`mb-8 transition-all duration-1000 delay-400 px-2 sm:px-0 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="glass-card bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-4 sm:p-6 shadow-md">
             <div className="flex flex-col gap-4">
               {/* Filters Row */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
