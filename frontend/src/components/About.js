@@ -248,9 +248,22 @@ const About = () => {
                     <div key={itemIndex} className="relative border-l-2 border-gray-700 hover:border-white/40 pl-6 transition-colors duration-300">
                       <div className={`absolute -left-2 top-2 w-4 h-4 bg-gradient-to-br ${section.color} rounded-full animate-pulse-slow`}></div>
                       <div>
-                        <h4 className="font-bold text-white mb-2 hover:neon-glow-teal transition-all duration-200">
-                          {item.title}
-                        </h4>
+                        {item.link ? (
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group block"
+                          >
+                            <h4 className="font-bold text-white mb-2 hover:text-orange-400 transition-all duration-200 group-hover:neon-glow-orange cursor-pointer">
+                              {item.title} 🔗
+                            </h4>
+                          </a>
+                        ) : (
+                          <h4 className="font-bold text-white mb-2 hover:neon-glow-teal transition-all duration-200">
+                            {item.title}
+                          </h4>
+                        )}
                         <p className="text-teal-400 text-sm font-medium mb-2">{item.institution}</p>
                         {item.year && (
                           <Badge className="neo-brutal-btn-small bg-gradient-to-r from-orange-500 to-orange-400 text-black text-xs mb-2 font-bold border-2 border-black">
