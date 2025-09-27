@@ -215,7 +215,7 @@ const Projects = () => {
               {filteredProjects.map((project, index) => (
                 <div 
                   key={project.id}
-                  className="glass-card bg-gradient-to-br from-black/60 to-gray-900/60 backdrop-blur-xl border border-white/20 hover:border-white/40 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer isometric-card ar-hover group"
+                  className="glass-card bg-gradient-to-br from-black/60 to-gray-900/60 backdrop-blur-xl border border-white/20 hover:border-white/40 rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer isometric-card ar-hover group"
                   onClick={() => handleProjectClick(project)}
                 >
                   <div className="mb-4">
