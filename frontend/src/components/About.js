@@ -167,7 +167,7 @@ const About = () => {
                 <span className="font-bold text-orange-400"> ISO 27001</span>.
               </p>
               <p className="text-gray-300 leading-relaxed mb-6 text-lg">
-                I serve as an <span className="font-black text-orange-400 neon-glow-orange">academic advisor</span>, 
+                I serve as an <span className="font-black text-orange-400">academic advisor</span>, 
                 collaborating with leading U.S. research institutions on AI-driven disease diagnostics using medical imaging. 
                 This dual role allows me to bridge cutting-edge research with practical, production-ready solutions.
               </p>
