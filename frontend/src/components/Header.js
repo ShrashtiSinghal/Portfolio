@@ -69,7 +69,7 @@ const Header = () => {
             {/* Neo-Brutalism Connect Button */}
             <Button
               className="neo-brutal-btn-small bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-black font-black px-6 py-2 ml-4 transform hover:scale-105 hover:-rotate-1 transition-all duration-200 shadow-md hover:shadow-lg"
-              onClick={() => window.open("https://linkedin.com/in/shrashtisinghal", "_blank")}
+              onClick={() => window.open("https://www.linkedin.com/in/shrashti-singhal-1869166b/", "_blank")}
             >
               <LinkedinIcon className="w-4 h-4 mr-2" />
               CONNECT
@@ -105,7 +105,7 @@ const Header = () => {
               ))}
               <Button
                 className="w-full neo-brutal-btn bg-gradient-to-r from-teal-500 to-teal-400 text-black font-black py-3 mt-4 transform hover:scale-105 transition-all duration-200 shadow-md"
-                onClick={() => window.open("https://linkedin.com/in/shrashtisinghal", "_blank")}
+                onClick={() => window.open("https://www.linkedin.com/in/shrashti-singhal-1869166b/", "_blank")}
               >
                 <LinkedinIcon className="w-4 h-4 mr-2" />
                 CONNECT ON LINKEDIN
