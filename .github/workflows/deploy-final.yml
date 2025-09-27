@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages (Final)
+name: Deploy Portfolio to GitHub Pages
 
 on:
   push:
@@ -15,8 +15,24 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout
+    - name: Checkout Repository
       uses: actions/checkout@v4
+    
+    - name: Debug Repository Structure
+      run: |
+        echo "Current working directory: $(pwd)"
+        echo "Repository contents:"
+        ls -la
+        echo "Looking for frontend directory..."
+        if [ -d "frontend" ]; then
+          echo "✅ Frontend directory found"
+          echo "Frontend contents:"
+          ls -la frontend/
+        else
+          echo "❌ Frontend directory not found"
+          echo "Available directories:"
+          find . -type d -name "*" | head -10
+        fi
     
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -24,14 +40,49 @@ jobs:
         node-version: 18
     
     - name: Install Dependencies
-      working-directory: ./frontend  
-      run: npm install --legacy-peer-deps
+      run: |
+        if [ -d "frontend" ]; then
+          echo "Installing in frontend directory..."
+          cd frontend
+          ls -la
+          echo "Using npm install with legacy peer deps..."
+          npm install --legacy-peer-deps
+        else
+          echo "No frontend directory found, installing in root..."
+          npm install --legacy-peer-deps
+        fi
     
-    - name: Build
-      working-directory: ./frontend
-      run: npm run build
+    - name: Build Project
+      run: |
+        if [ -d "frontend" ]; then
+          echo "Building from frontend directory..."
+          cd frontend
+          npm run build
+        else
+          echo "Building from root directory..."
+          npm run build
+        fi
       env:
         CI: false
+        NODE_OPTIONS: "--max_old_space_size=4096"
+    
+    - name: Verify Build Output
+      run: |
+        if [ -d "frontend/build" ]; then
+          echo "✅ Build successful in frontend/build"
+          ls -la frontend/build/
+          BUILD_PATH="./frontend/build"
+        elif [ -d "build" ]; then
+          echo "✅ Build successful in root/build"
+          ls -la build/
+          BUILD_PATH="./build"
+        else
+          echo "❌ No build directory found!"
+          echo "Searching for build directories..."
+          find . -type d -name "build" 2>/dev/null || echo "No build directories found"
+          exit 1
+        fi
+        echo "BUILD_PATH=$BUILD_PATH" >> $GITHUB_ENV
     
     - name: Setup Pages
       uses: actions/configure-pages@v4
@@ -39,7 +90,7 @@ jobs:
     - name: Upload Pages Artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: ./frontend/build
+        path: ${{ env.BUILD_PATH }}
     
     - name: Deploy to GitHub Pages
       id: deployment
