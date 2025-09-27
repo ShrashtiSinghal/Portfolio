@@ -275,10 +275,10 @@ const Contact = () => {
 
             {/* Alternative Contact Note */}
             <div className="mt-6 text-center">
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-400">
                 Prefer a direct conversation? 
                 <button 
-                  className="text-teal-600 hover:text-teal-700 font-medium ml-1 transition-colors"
+                  className="text-teal-400 hover:text-white font-bold ml-1 transition-colors hover:neon-glow-teal"
                   onClick={() => window.open("https://linkedin.com/in/shrashtisinghal", "_blank")}
                 >
                   Message me on LinkedIn
