@@ -94,12 +94,14 @@ const About = () => {
         {
           title: "Journey to the Ultimate AI: Future of Humanity",
           institution: "Science Fiction Novel - Amazon",
-          description: "Exploring philosophical implications of AI advancement"
+          description: "Exploring philosophical implications of AI advancement",
+          link: "https://www.amazon.in/-/hi/Shrashti-Singhal-ebook/dp/B0C5W4ZFHD"
         },
         {
           title: "Technical Articles on AI/ML",
           institution: "Towards Data Science & Towards AI (Medium)",
-          description: "Contributing to leading data science publications"
+          description: "Contributing to leading data science publications",
+          link: "https://medium.com/@shrashtisinghal"
         }
       ]
     }
