@@ -7,7 +7,7 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: <LinkedinIcon className="w-5 h-5" />,
-      href: "https://linkedin.com/in/shrashtisinghal",
+      href: "https://www.linkedin.com/in/shrashti-singhal-1869166b/",
       label: "LinkedIn",
       color: "hover:text-blue-400 hover:neon-glow-teal"
     },
