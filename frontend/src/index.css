@@ -71,23 +71,23 @@ code {
   -webkit-backdrop-filter: blur(10px);
 }
 
-/* Neo-Brutalism Effects */
+/* Neo-Brutalism Effects - Reduced Shadows */
 .neo-brutal-btn {
   border: 3px solid #000000;
-  box-shadow: 4px 4px 0px #000000;
+  box-shadow: 2px 2px 0px #000000;
   text-transform: uppercase;
   letter-spacing: 1px;
   position: relative;
 }
 
 .neo-brutal-btn:hover {
-  box-shadow: 6px 6px 0px #000000;
-  transform: translate(-2px, -2px) scale(1.05);
+  box-shadow: 4px 4px 0px #000000;
+  transform: translate(-1px, -1px) scale(1.05);
 }
 
 .neo-brutal-btn-small {
   border: 2px solid #000000;
-  box-shadow: 2px 2px 0px #000000;
+  box-shadow: 1px 1px 0px #000000;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -95,17 +95,17 @@ code {
 .neo-brutal-btn-outline {
   background: transparent;
   border: 3px solid currentColor;
-  box-shadow: 4px 4px 0px currentColor;
+  box-shadow: 2px 2px 0px currentColor;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .shadow-brutal {
-  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.8), 4px 4px 0px rgba(255, 102, 0, 0.3);
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.6), 2px 2px 0px rgba(255, 102, 0, 0.2);
 }
 
 .shadow-brutal-hover {
-  box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.8), 6px 6px 0px rgba(255, 102, 0, 0.5);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.6), 3px 3px 0px rgba(255, 102, 0, 0.3);
 }
 
 /* 3D Isometric Effects */
@@ -132,22 +132,31 @@ code {
   transform: perspective(500px) rotateX(-5deg) rotateY(-5deg) translateZ(10px);
 }
 
-/* Neon Glow Effects */
+/* Neon Glow Effects - Reduced Intensity */
 .neon-glow-orange {
-  text-shadow: 0 0 5px #ff6600, 0 0 10px #ff6600, 0 0 15px #ff6600, 0 0 20px #ff6600;
+  text-shadow: 0 0 3px #ff6600, 0 0 6px #ff6600, 0 0 9px #ff6600;
 }
 
 .neon-glow-teal {
-  text-shadow: 0 0 5px #17c3b2, 0 0 10px #17c3b2, 0 0 15px #17c3b2, 0 0 20px #17c3b2;
+  text-shadow: 0 0 3px #17c3b2, 0 0 6px #17c3b2, 0 0 9px #17c3b2;
+}
+
+.neon-glow-subtle {
+  text-shadow: 0 0 2px #ff6600, 0 0 4px #ff6600;
 }
 
 .neon-text-teal {
   color: #17c3b2;
-  text-shadow: 0 0 10px #17c3b2;
+  text-shadow: 0 0 5px #17c3b2;
+}
+
+.neon-text-orange {
+  color: #ff6600;
+  text-shadow: 0 0 5px #ff6600;
 }
 
 .neon-glow-teal-btn:hover {
-  box-shadow: 0 0 20px #17c3b2, inset 0 0 20px #17c3b2;
+  box-shadow: 0 0 15px #17c3b2, inset 0 0 15px #17c3b2;
 }
 
 /* Motion UI Animations */
@@ -174,8 +183,8 @@ code {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 5px currentColor; }
-  50% { box-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+  0%, 100% { box-shadow: 0 0 3px currentColor; }
+  50% { box-shadow: 0 0 15px currentColor, 0 0 20px currentColor; }
 }
 
 @keyframes pulse-slow {

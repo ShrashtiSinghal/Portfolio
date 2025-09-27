@@ -93,59 +93,60 @@ const Hero = () => {
             {/* Left Content */}
             <div className={`space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <div className="space-y-6">
-                {/* Neo-Brutalism Badge */}
+                {/* Neo-Brutalism Badge - Updated Text */}
                 <div className="inline-flex items-center">
-                  <div className="bg-gradient-to-r from-orange-500 to-orange-400 text-black font-black px-6 py-3 transform -rotate-2 shadow-brutal animate-pulse-glow">
+                  <div className="bg-gradient-to-r from-orange-500 to-orange-400 text-black font-black px-6 py-3 transform -rotate-2 neo-brutal-btn-small animate-pulse-glow">
                     <span className="flex items-center gap-2">
                       <span className="w-3 h-3 bg-black rounded-full animate-ping"></span>
-                      AVAILABLE FOR HIRE
+                      AVAILABLE FOR CONSULTANCY
                     </span>
                   </div>
                 </div>
                 
                 <div>
-                  {/* Glass Morphism Name Container */}
-                  <div className="glass-card p-8 border border-white/20 backdrop-blur-xl bg-white/5 rounded-2xl mb-6">
+                  {/* Glass Morphism Name Container - Reduced Shadow */}
+                  <div className="glass-card p-8 border border-white/20 backdrop-blur-xl bg-white/5 rounded-2xl mb-6 shadow-lg">
                     <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-tight">
                       <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                         Shrashti
                       </span>
                       <br />
-                      <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-teal-400 bg-clip-text text-transparent animate-gradient-x neon-glow-orange">
+                      {/* Reduced Neon Glow */}
+                      <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-teal-400 bg-clip-text text-transparent animate-gradient-x neon-glow-subtle">
                         Singhal
                       </span>
                     </h1>
                   </div>
                   
                   <div className="h-12 overflow-hidden mb-4">
-                    <p className="text-2xl sm:text-3xl text-gray-300 font-light animate-fade-in-up neon-text-teal">
+                    <p className="text-2xl sm:text-3xl text-teal-400 font-light animate-fade-in-up">
                       {roles[currentRole]}
                     </p>
                   </div>
                 </div>
 
-                {/* 3D Isometric Description Box */}
-                <div className="isometric-card bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-md border border-teal-500/30 p-6 rounded-xl">
+                {/* 3D Isometric Description Box - Reduced Shadow */}
+                <div className="isometric-card bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-md border border-teal-500/30 p-6 rounded-xl shadow-md">
                   <p className="text-lg text-gray-300 leading-relaxed">
-                    Accomplished AI Leader with <span className="font-black text-orange-400 neon-glow-orange">12+ years</span> of experience 
-                    architecting production-grade AI solutions across <span className="font-bold text-teal-400 neon-glow-teal">cybersecurity</span>, 
-                    <span className="font-bold text-teal-400 neon-glow-teal"> healthcare</span>, and 
-                    <span className="font-bold text-orange-400 neon-glow-orange"> cloud-native ecosystems</span>.
+                    Accomplished AI Leader with <span className="font-black text-orange-400">12+ years</span> of experience 
+                    architecting production-grade AI solutions across <span className="font-bold text-teal-400">cybersecurity</span>, 
+                    <span className="font-bold text-teal-400"> healthcare</span>, and 
+                    <span className="font-bold text-orange-400"> cloud-native ecosystems</span>.
                   </p>
                 </div>
               </div>
 
-              {/* Neo-Brutalism Buttons */}
+              {/* Neo-Brutalism Buttons - Reduced Shadows */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
-                  className="neo-brutal-btn bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-400 hover:to-orange-300 text-black font-black px-8 py-4 text-lg transform hover:scale-105 hover:-rotate-1 transition-all duration-200 shadow-brutal hover:shadow-brutal-hover"
+                  className="neo-brutal-btn bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-400 hover:to-orange-300 text-black font-black px-8 py-4 text-lg transform hover:scale-105 hover:-rotate-1 transition-all duration-200 shadow-md hover:shadow-lg"
                   onClick={() => scrollToSection("projects")}
                 >
                   VIEW MY WORK
                   <ArrowDown className="w-5 h-5 ml-2 animate-bounce" />
                 </Button>
                 <Button
-                  className="neo-brutal-btn-outline border-2 border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-black font-black px-8 py-4 text-lg transform hover:scale-105 hover:rotate-1 transition-all duration-200 neon-glow-teal-btn"
+                  className="neo-brutal-btn-outline border-2 border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-black font-black px-8 py-4 text-lg transform hover:scale-105 hover:rotate-1 transition-all duration-200 shadow-md hover:shadow-lg"
                   onClick={() => window.open("https://linkedin.com/in/shrashtisinghal", "_blank")}
                 >
                   <LinkedinIcon className="w-5 h-5 mr-2" />
@@ -153,7 +154,7 @@ const Hero = () => {
                 </Button>
               </div>
 
-              {/* Social Links with 3D Effect */}
+              {/* Social Links with 3D Effect - Reduced Shadows */}
               <div className="flex items-center space-x-6 pt-4">
                 <div className="flex items-center space-x-4">
                   {[
@@ -162,7 +163,7 @@ const Hero = () => {
                   ].map((social, index) => (
                     <button 
                       key={index}
-                      className={`isometric-social-btn glass-card p-4 bg-white/5 backdrop-blur-md border border-white/20 rounded-xl ${social.color} text-gray-400 hover:scale-110 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl`}
+                      className={`isometric-social-btn glass-card p-4 bg-white/5 backdrop-blur-md border border-white/20 rounded-xl ${social.color} text-gray-400 hover:scale-110 hover:-translate-y-1 transition-all duration-300 shadow-md hover:shadow-lg`}
                       onClick={() => window.open(social.url, "_blank")}
                     >
                       {social.icon}
@@ -175,7 +176,7 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Right Content - Profile Picture with 3D Effects */}
+            {/* Right Content - Profile Picture with 3D Effects - Reduced Shadows */}
             <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <div className="relative flex justify-center">
                 {/* 3D Isometric Background */}
@@ -183,8 +184,8 @@ const Hero = () => {
                   <div className="isometric-bg w-full h-full bg-gradient-to-br from-orange-500/20 via-transparent to-teal-500/20 rounded-3xl blur-xl animate-pulse-slow"></div>
                 </div>
 
-                {/* Glass Morphism Container */}
-                <div className="glass-card relative z-10 p-4 bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl shadow-brutal">
+                {/* Glass Morphism Container - Reduced Shadow */}
+                <div className="glass-card relative z-10 p-4 bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl shadow-lg">
                   {/* Passport Size Professional Image */}
                   <div className="relative w-48 h-60 sm:w-56 sm:h-70 overflow-hidden rounded-2xl">
                     <img
@@ -196,13 +197,13 @@ const Hero = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                   </div>
 
-                  {/* Floating 3D Stats */}
-                  <div className="absolute -left-6 top-8 glass-card bg-gradient-to-r from-orange-500/90 to-orange-400/90 backdrop-blur-md text-black px-4 py-3 rounded-xl shadow-brutal transform -rotate-3 animate-float">
+                  {/* Floating 3D Stats - Reduced Shadows */}
+                  <div className="absolute -left-6 top-8 glass-card bg-gradient-to-r from-orange-500/90 to-orange-400/90 backdrop-blur-md text-black px-4 py-3 rounded-xl shadow-md transform -rotate-3 animate-float">
                     <div className="text-xl font-black">12+</div>
                     <div className="text-xs font-bold">YEARS</div>
                   </div>
                   
-                  <div className="absolute -right-6 bottom-8 glass-card bg-gradient-to-r from-teal-500/90 to-teal-400/90 backdrop-blur-md text-black px-4 py-3 rounded-xl shadow-brutal transform rotate-2 animate-float" style={{ animationDelay: '0.5s' }}>
+                  <div className="absolute -right-6 bottom-8 glass-card bg-gradient-to-r from-teal-500/90 to-teal-400/90 backdrop-blur-md text-black px-4 py-3 rounded-xl shadow-md transform rotate-2 animate-float" style={{ animationDelay: '0.5s' }}>
                     <div className="text-xl font-black">15+</div>
                     <div className="text-xs font-bold">PROJECTS</div>
                   </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-import { ExternalLink, Calendar, Building, User, TrendingUp, Filter, Grid, List } from "lucide-react";
+import { ExternalLink, Calendar, Building, User, TrendingUp, Filter, Grid, List, Cpu, Shield, Zap } from "lucide-react";
 import { mockProjects } from "../data/mockProjects";
 
 const Projects = () => {
@@ -10,6 +10,7 @@ const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [viewMode, setViewMode] = useState("grid");
   const [selectedProject, setSelectedProject] = useState(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -21,12 +22,23 @@ const Projects = () => {
       { threshold: 0.1 }
     );
 
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100,
+      });
+    };
+
     const element = document.getElementById("projects");
     if (element) {
       observer.observe(element);
     }
 
-    return () => observer.disconnect();
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   const categories = ["All", ...new Set(mockProjects.map(project => project.category))];
@@ -47,37 +59,74 @@ const Projects = () => {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case "Active": return "bg-green-100 text-green-700";
-      case "Completed": return "bg-blue-100 text-blue-700"; 
-      case "Acquired": return "bg-purple-100 text-purple-700";
-      default: return "bg-gray-100 text-gray-700";
+      case "Active": return "bg-green-500/20 text-green-400 border-green-500/30";
+      case "Completed": return "bg-blue-500/20 text-blue-400 border-blue-500/30"; 
+      case "Acquired": return "bg-purple-500/20 text-purple-400 border-purple-500/30";
+      default: return "bg-gray-500/20 text-gray-400 border-gray-500/30";
     }
   };
 
   return (
-    <section id="projects" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Section Header */}
+    <section 
+      id="projects" 
+      className="py-24 bg-black relative overflow-hidden"
+      style={{
+        background: `
+          radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(23, 195, 178, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
+          linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%)
+        `
+      }}
+    >
+      {/* Floating 3D Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {Array.from({ length: 8 }).map((_, index) => (
+          <div
+            key={index}
+            className={`absolute opacity-10 ${index % 2 === 0 ? 'text-orange-400' : 'text-teal-400'} animate-float`}
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${index * 0.5}s`,
+              animationDuration: `${3 + Math.random() * 2}s`
+            }}
+          >
+            {index % 3 === 0 ? <Cpu className="w-8 h-8" /> : 
+             index % 3 === 1 ? <Shield className="w-6 h-6" /> : 
+             <Zap className="w-7 h-7" />}
+          </div>
+        ))}
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+        {/* Neo-Brutalism Section Header */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-4xl sm:text-5xl font-light text-black mb-6">
-            Major <span className="text-teal-600">Projects</span>
-          </h2>
-          <p className="text-xl text-gray-600 font-light max-w-3xl mx-auto leading-relaxed">
-            15+ transformative AI/ML projects spanning cybersecurity, healthcare, and data intelligence
+          <div className="inline-block mb-8">
+            <div className="neo-brutal-btn bg-gradient-to-r from-teal-500 to-orange-500 text-black font-black px-8 py-4 transform -rotate-1 shadow-md">
+              <h2 className="text-4xl sm:text-5xl font-black tracking-tight">
+                MAJOR PROJECTS
+              </h2>
+            </div>
+          </div>
+          <p className="text-xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed">
+            <span className="text-orange-400 font-bold">15+ transformative AI/ML projects</span> spanning 
+            <span className="text-teal-400 font-bold"> cybersecurity</span>, healthcare, and 
+            <span className="text-orange-400 font-bold"> data intelligence</span>
           </p>
         </div>
 
-        {/* Featured Projects Highlight */}
+        {/* Featured Projects Highlight with Dark Theme */}
         <div className={`mb-12 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h3 className="text-2xl font-light text-black mb-8 text-center">Featured Projects</h3>
+          <h3 className="text-2xl font-black text-white mb-8 text-center">FEATURED PROJECTS</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredProjects.map((project, index) => (
-              <Card 
+              <div 
                 key={project.id} 
-                className="bg-gradient-to-br from-teal-50 to-rose-50 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 cursor-pointer group"
+                className="group cursor-pointer"
                 onClick={() => handleProjectClick(project)}
               >
-                <CardContent className="p-6">
+                {/* Glass Morphism Featured Card */}
+                <div className="glass-card bg-gradient-to-br from-orange-500/10 to-teal-500/10 backdrop-blur-xl border border-white/20 hover:border-white/40 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:-rotate-1 isometric-card ar-hover">
                   <div className="mb-4">
                     <img 
                       src={project.image} 
@@ -85,207 +134,215 @@ const Projects = () => {
                       className="w-full h-32 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <h4 className="font-semibold text-black mb-2 text-sm line-clamp-2">{project.title}</h4>
-                  <p className="text-gray-600 text-xs mb-3 line-clamp-2">{project.description}</p>
+                  <h4 className="font-black text-white mb-2 text-sm line-clamp-2">{project.title}</h4>
+                  <p className="text-gray-400 text-xs mb-3 line-clamp-2">{project.description}</p>
                   <div className="flex justify-between items-center">
-                    <Badge className={`text-xs ${getStatusColor(project.status)}`}>
+                    <Badge className={`neo-brutal-btn-small text-xs font-bold border ${getStatusColor(project.status)}`}>
                       {project.status}
                     </Badge>
                     <span className="text-xs text-gray-500">{project.year}</span>
                   </div>
-                </CardContent>
-              </Card>
+                  
+                  {/* Floating Corner Element */}
+                  <div className={`absolute -top-2 -right-2 w-4 h-4 bg-gradient-to-br ${index % 2 === 0 ? 'from-orange-500 to-orange-400' : 'from-teal-500 to-teal-400'} rounded-full animate-pulse-glow`}></div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Filters and View Toggle */}
+        {/* Filters and View Toggle with Glass Morphism */}
         <div className={`mb-8 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div className="flex items-center gap-4">
-              <Filter className="w-5 h-5 text-gray-600" />
-              <div className="flex flex-wrap gap-2">
-                {categories.map((category) => (
-                  <Button
-                    key={category}
-                    variant={selectedCategory === category ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => setSelectedCategory(category)}
-                    className={`text-xs ${
-                      selectedCategory === category 
-                        ? "bg-teal-600 hover:bg-teal-700" 
-                        : "border-gray-300 hover:border-teal-600 hover:text-teal-600"
-                    }`}
-                  >
-                    {category}
-                  </Button>
-                ))}
+          <div className="glass-card bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-md">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+              <div className="flex items-center gap-4">
+                <Filter className="w-5 h-5 text-teal-400" />
+                <div className="flex flex-wrap gap-2">
+                  {categories.map((category) => (
+                    <Button
+                      key={category}
+                      variant={selectedCategory === category ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setSelectedCategory(category)}
+                      className={`neo-brutal-btn-small text-xs font-bold transition-all duration-200 ${
+                        selectedCategory === category 
+                          ? "bg-teal-600 hover:bg-teal-700 text-black" 
+                          : "bg-transparent border-2 border-gray-600 text-gray-300 hover:border-teal-400 hover:text-teal-400"
+                      }`}
+                    >
+                      {category}
+                    </Button>
+                  ))}
+                </div>
               </div>
-            </div>
-            
-            <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-1">
-              <Button
-                variant={viewMode === "grid" ? "default" : "ghost"}
-                size="sm"
-                onClick={() => setViewMode("grid")}
-                className="p-2"
-              >
-                <Grid className="w-4 h-4" />
-              </Button>
-              <Button
-                variant={viewMode === "list" ? "default" : "ghost"}
-                size="sm" 
-                onClick={() => setViewMode("list")}
-                className="p-2"
-              >
-                <List className="w-4 h-4" />
-              </Button>
+              
+              <div className="flex items-center gap-2 bg-gray-800/50 rounded-lg p-1">
+                <Button
+                  variant={viewMode === "grid" ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => setViewMode("grid")}
+                  className={`p-2 ${viewMode === "grid" ? 'bg-teal-600 text-black' : 'text-gray-400 hover:text-white'}`}
+                >
+                  <Grid className="w-4 h-4" />
+                </Button>
+                <Button
+                  variant={viewMode === "list" ? "default" : "ghost"}
+                  size="sm" 
+                  onClick={() => setViewMode("list")}
+                  className={`p-2 ${viewMode === "list" ? 'bg-teal-600 text-black' : 'text-gray-400 hover:text-white'}`}
+                >
+                  <List className="w-4 h-4" />
+                </Button>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Projects Grid/List */}
+        {/* Projects Grid/List with Dark Theme */}
         <div className={`transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {viewMode === "grid" ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProjects.map((project, index) => (
-                <Card 
+                <div 
                   key={project.id}
-                  className="bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 cursor-pointer group"
+                  className="glass-card bg-gradient-to-br from-black/60 to-gray-900/60 backdrop-blur-xl border border-white/20 hover:border-white/40 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer isometric-card ar-hover group"
                   onClick={() => handleProjectClick(project)}
                 >
-                  <CardContent className="p-6">
-                    <div className="mb-4">
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        className="w-full h-48 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
-                      />
+                  <div className="mb-4">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-48 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-start">
+                      <h3 className="font-black text-white text-lg line-clamp-2 flex-1">{project.title}</h3>
+                      <Badge className={`neo-brutal-btn-small text-xs font-bold border ml-2 ${getStatusColor(project.status)}`}>
+                        {project.status}
+                      </Badge>
                     </div>
                     
-                    <div className="space-y-3">
-                      <div className="flex justify-between items-start">
-                        <h3 className="font-semibold text-black text-lg line-clamp-2 flex-1">{project.title}</h3>
-                        <Badge className={`text-xs ml-2 ${getStatusColor(project.status)}`}>
-                          {project.status}
-                        </Badge>
+                    <p className="text-gray-400 text-sm line-clamp-3">{project.description}</p>
+                    
+                    <div className="flex items-center gap-4 text-xs text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-3 h-3 text-teal-400" />
+                        <span>{project.year}</span>
                       </div>
-                      
-                      <p className="text-gray-600 text-sm line-clamp-3">{project.description}</p>
-                      
-                      <div className="flex items-center gap-4 text-xs text-gray-500">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="w-3 h-3" />
-                          <span>{project.year}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Building className="w-3 h-3" />
-                          <span>{project.company}</span>
-                        </div>
-                      </div>
-                      
-                      <div className="flex flex-wrap gap-1">
-                        {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                          <Badge key={techIndex} variant="secondary" className="text-xs">
-                            {tech}
-                          </Badge>
-                        ))}
-                        {project.technologies.length > 3 && (
-                          <Badge variant="secondary" className="text-xs">
-                            +{project.technologies.length - 3} more
-                          </Badge>
-                        )}
+                      <div className="flex items-center gap-1">
+                        <Building className="w-3 h-3 text-orange-400" />
+                        <span>{project.company}</span>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                    
+                    <div className="flex flex-wrap gap-1">
+                      {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                        <Badge key={techIndex} className="neo-brutal-btn-small bg-gray-800/80 text-gray-300 text-xs border border-gray-700/50">
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.technologies.length > 3 && (
+                        <Badge className="neo-brutal-btn-small bg-gray-800/80 text-gray-300 text-xs border border-gray-700/50">
+                          +{project.technologies.length - 3} more
+                        </Badge>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Floating Corner Element */}
+                  <div className={`absolute -top-2 -right-2 w-4 h-4 bg-gradient-to-br ${index % 2 === 0 ? 'from-orange-500 to-orange-400' : 'from-teal-500 to-teal-400'} rounded-full animate-pulse-glow`}></div>
+                </div>
               ))}
             </div>
           ) : (
             <div className="space-y-6">
               {filteredProjects.map((project, index) => (
-                <Card 
+                <div 
                   key={project.id}
-                  className="bg-white hover:shadow-lg transition-all duration-300 border-0 cursor-pointer group"
+                  className="glass-card bg-gradient-to-br from-black/60 to-gray-900/60 backdrop-blur-xl border border-white/20 hover:border-white/40 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer isometric-card ar-hover group"
                   onClick={() => handleProjectClick(project)}
                 >
-                  <CardContent className="p-6">
-                    <div className="flex flex-col md:flex-row gap-6">
-                      <div className="md:w-1/4">
-                        <img 
-                          src={project.image} 
-                          alt={project.title}
-                          className="w-full h-32 md:h-24 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
-                        />
+                  <div className="flex flex-col md:flex-row gap-6">
+                    <div className="md:w-1/4">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-32 md:h-24 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="md:w-3/4 space-y-3">
+                      <div className="flex justify-between items-start">
+                        <h3 className="font-black text-white text-xl">{project.title}</h3>
+                        <Badge className={`neo-brutal-btn-small text-xs font-bold border ${getStatusColor(project.status)}`}>
+                          {project.status}
+                        </Badge>
                       </div>
-                      <div className="md:w-3/4 space-y-3">
-                        <div className="flex justify-between items-start">
-                          <h3 className="font-semibold text-black text-xl">{project.title}</h3>
-                          <Badge className={`text-xs ${getStatusColor(project.status)}`}>
-                            {project.status}
+                      
+                      <p className="text-gray-400 text-sm line-clamp-2">{project.description}</p>
+                      
+                      <div className="flex items-center gap-6 text-xs text-gray-500">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-3 h-3 text-teal-400" />
+                          <span>{project.year}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Building className="w-3 h-3 text-orange-400" />
+                          <span>{project.company}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <User className="w-3 h-3 text-teal-400" />
+                          <span>{project.role}</span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex flex-wrap gap-1">
+                        {project.technologies.map((tech, techIndex) => (
+                          <Badge key={techIndex} className="neo-brutal-btn-small bg-gray-800/80 text-gray-300 text-xs border border-gray-700/50">
+                            {tech}
                           </Badge>
-                        </div>
-                        
-                        <p className="text-gray-600 text-sm line-clamp-2">{project.description}</p>
-                        
-                        <div className="flex items-center gap-6 text-xs text-gray-500">
-                          <div className="flex items-center gap-1">
-                            <Calendar className="w-3 h-3" />
-                            <span>{project.year}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Building className="w-3 h-3" />
-                            <span>{project.company}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <User className="w-3 h-3" />
-                            <span>{project.role}</span>
-                          </div>
-                        </div>
-                        
-                        <div className="flex flex-wrap gap-1">
-                          {project.technologies.map((tech, techIndex) => (
-                            <Badge key={techIndex} variant="secondary" className="text-xs">
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
+                        ))}
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               ))}
             </div>
           )}
         </div>
 
-        {/* Project Detail Modal */}
+        {/* Project Detail Modal with Dark Theme */}
         {selectedProject && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={closeModal}>
-            <Card className="bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
+          <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4" onClick={closeModal}>
+            <div className="glass-card bg-gradient-to-br from-black/90 to-gray-900/90 backdrop-blur-2xl border border-white/30 max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl shadow-xl" onClick={e => e.stopPropagation()}>
               <CardContent className="p-8">
                 <div className="flex justify-between items-start mb-6">
                   <div className="flex-1">
-                    <h2 className="text-2xl font-bold text-black mb-2">{selectedProject.title}</h2>
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
+                    <h2 className="text-2xl font-black text-white mb-2">{selectedProject.title}</h2>
+                    <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400">
                       <div className="flex items-center gap-1">
-                        <Building className="w-4 h-4" />
+                        <Building className="w-4 h-4 text-teal-400" />
                         <span>{selectedProject.company}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <User className="w-4 h-4" />
+                        <User className="w-4 h-4 text-orange-400" />
                         <span>{selectedProject.role}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
+                        <Calendar className="w-4 h-4 text-teal-400" />
                         <span>{selectedProject.year}</span>
                       </div>
-                      <Badge className={`${getStatusColor(selectedProject.status)}`}>
+                      <Badge className={`neo-brutal-btn-small font-bold border ${getStatusColor(selectedProject.status)}`}>
                         {selectedProject.status}
                       </Badge>
                     </div>
                   </div>
-                  <Button variant="ghost" onClick={closeModal} className="p-2">
+                  <Button 
+                    variant="ghost" 
+                    onClick={closeModal} 
+                    className="p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-full"
+                  >
                     <span className="sr-only">Close</span>
                     ✕
                   </Button>
@@ -301,19 +358,19 @@ const Projects = () => {
                 
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-semibold text-black mb-3">Project Overview</h3>
-                    <p className="text-gray-700 leading-relaxed">{selectedProject.longDescription}</p>
+                    <h3 className="text-lg font-black text-white mb-3">PROJECT OVERVIEW</h3>
+                    <p className="text-gray-300 leading-relaxed">{selectedProject.longDescription}</p>
                   </div>
                   
                   <div>
-                    <h3 className="text-lg font-semibold text-black mb-3 flex items-center">
-                      <TrendingUp className="w-5 h-5 mr-2 text-teal-600" />
-                      Key Impact & Results
+                    <h3 className="text-lg font-black text-white mb-3 flex items-center">
+                      <TrendingUp className="w-5 h-5 mr-2 text-orange-400" />
+                      KEY IMPACT & RESULTS
                     </h3>
                     <ul className="space-y-2">
                       {selectedProject.impact.map((impact, index) => (
-                        <li key={index} className="text-gray-700 flex items-start">
-                          <span className="w-2 h-2 bg-teal-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <li key={index} className="text-gray-300 flex items-start">
+                          <span className="w-2 h-2 bg-teal-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span>{impact}</span>
                         </li>
                       ))}
@@ -321,10 +378,10 @@ const Projects = () => {
                   </div>
                   
                   <div>
-                    <h3 className="text-lg font-semibold text-black mb-3">Technologies & Tools</h3>
+                    <h3 className="text-lg font-black text-white mb-3">TECHNOLOGIES & TOOLS</h3>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.technologies.map((tech, index) => (
-                        <Badge key={index} variant="secondary" className="text-sm py-1 px-3">
+                        <Badge key={index} className="neo-brutal-btn-small bg-gray-800/80 text-gray-300 text-sm py-2 px-4 border border-gray-700/50">
                           {tech}
                         </Badge>
                       ))}
@@ -332,7 +389,7 @@ const Projects = () => {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </div>
           </div>
         )}
       </div>
