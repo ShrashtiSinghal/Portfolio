@@ -162,7 +162,7 @@ const Contact = () => {
                 </p>
                 <Button 
                   className="neo-brutal-btn w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-black py-3 transition-all duration-200 shadow-md hover:shadow-lg"
-                  onClick={() => window.open("https://linkedin.com/in/shrashtisinghal", "_blank")}
+                  onClick={() => window.open("https://www.linkedin.com/in/shrashti-singhal-1869166b/", "_blank")}
                 >
                   <LinkedinIcon className="w-4 h-4 mr-2" />
                   CONNECT NOW
@@ -279,7 +279,7 @@ const Contact = () => {
                 Prefer a direct conversation? 
                 <button 
                   className="text-teal-400 hover:text-white font-bold ml-1 transition-colors hover:neon-glow-teal"
-                  onClick={() => window.open("https://linkedin.com/in/shrashtisinghal", "_blank")}
+                  onClick={() => window.open("https://www.linkedin.com/in/shrashti-singhal-1869166b/", "_blank")}
                 >
                   Message me on LinkedIn
                 </button>
