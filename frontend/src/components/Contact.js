@@ -144,7 +144,7 @@ const Contact = () => {
           <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="space-y-8">
               <div className="glass-card bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-lg">
-                <h3 className="text-2xl font-black text-white mb-4 neon-text-orange">GET IN TOUCH</h3>
+                <h3 className="text-2xl font-black text-white mb-4">GET IN TOUCH</h3>
                 <p className="text-gray-300 leading-relaxed mb-6">
                   I'm always excited to connect with fellow <span className="text-teal-400 font-bold">innovators</span>, 
                   potential <span className="text-orange-400 font-bold">collaborators</span>, and anyone passionate about AI and technology. 
