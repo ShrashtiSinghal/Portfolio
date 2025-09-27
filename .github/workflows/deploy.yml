@@ -22,30 +22,65 @@ jobs:
     - name: Checkout 🛎️
       uses: actions/checkout@v4
 
+    - name: Debug Repository Structure 🔍
+      run: |
+        echo "Repository root contents:"
+        ls -la
+        echo "Looking for frontend directory..."
+        if [ -d "frontend" ]; then
+          echo "✅ Frontend directory found"
+          ls -la frontend/
+          if [ -f "frontend/yarn.lock" ]; then
+            echo "✅ yarn.lock found in frontend/"
+          else
+            echo "❌ yarn.lock not found in frontend/"
+          fi
+        elif [ -f "yarn.lock" ]; then
+          echo "✅ yarn.lock found in root"
+        else
+          echo "❌ yarn.lock not found"
+        fi
+
     - name: Setup Node.js 💻
       uses: actions/setup-node@v4
       with:
         node-version: '18'
         cache: 'yarn'
-        cache-dependency-path: frontend/yarn.lock
+        cache-dependency-path: |
+          frontend/yarn.lock
+          yarn.lock
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
 
     - name: Install Dependencies 📦
-      working-directory: ./frontend
-      run: yarn install --frozen-lockfile
+      run: |
+        if [ -d "frontend" ]; then
+          echo "Installing dependencies in frontend directory..."
+          cd frontend && yarn install --frozen-lockfile
+        else
+          echo "Installing dependencies in root directory..."
+          yarn install --frozen-lockfile
+        fi
 
     - name: Build 🔧
-      working-directory: ./frontend
-      run: yarn build
+      run: |
+        if [ -d "frontend" ]; then
+          echo "Building from frontend directory..."
+          cd frontend && yarn build
+        else
+          echo "Building from root directory..."
+          yarn build
+        fi
       env:
         CI: false
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: ./frontend/build
+        path: |
+          ${{ github.workspace }}/frontend/build
+          ${{ github.workspace }}/build
 
   deploy:
     environment:
