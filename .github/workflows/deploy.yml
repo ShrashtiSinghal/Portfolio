@@ -22,33 +22,11 @@ jobs:
     - name: Checkout 🛎️
       uses: actions/checkout@v4
 
-    - name: Debug Repository Structure 🔍
-      run: |
-        echo "Repository root contents:"
-        ls -la
-        echo "Looking for frontend directory..."
-        if [ -d "frontend" ]; then
-          echo "✅ Frontend directory found"
-          ls -la frontend/
-          if [ -f "frontend/yarn.lock" ]; then
-            echo "✅ yarn.lock found in frontend/"
-          else
-            echo "❌ yarn.lock not found in frontend/"
-          fi
-        elif [ -f "yarn.lock" ]; then
-          echo "✅ yarn.lock found in root"
-        else
-          echo "❌ yarn.lock not found"
-        fi
-
     - name: Setup Node.js 💻
       uses: actions/setup-node@v4
       with:
         node-version: '18'
         cache: 'yarn'
-        cache-dependency-path: |
-          frontend/yarn.lock
-          yarn.lock
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
@@ -57,17 +35,19 @@ jobs:
       run: |
         if [ -d "frontend" ]; then
           echo "Installing dependencies in frontend directory..."
-          cd frontend && yarn install --frozen-lockfile
+          cd frontend
+          yarn install
         else
           echo "Installing dependencies in root directory..."
-          yarn install --frozen-lockfile
+          yarn install
         fi
 
     - name: Build 🔧
       run: |
         if [ -d "frontend" ]; then
           echo "Building from frontend directory..."
-          cd frontend && yarn build
+          cd frontend
+          yarn build
         else
           echo "Building from root directory..."
           yarn build
@@ -75,12 +55,24 @@ jobs:
       env:
         CI: false
 
+    - name: Prepare Build Output 📁
+      run: |
+        if [ -d "frontend/build" ]; then
+          echo "Build found in frontend/build"
+          BUILD_PATH="./frontend/build"
+        elif [ -d "build" ]; then
+          echo "Build found in root build"
+          BUILD_PATH="./build"
+        else
+          echo "No build directory found!"
+          exit 1
+        fi
+        echo "BUILD_PATH=$BUILD_PATH" >> $GITHUB_ENV
+
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: |
-          ${{ github.workspace }}/frontend/build
-          ${{ github.workspace }}/build
+        path: ${{ env.BUILD_PATH }}
 
   deploy:
     environment:
