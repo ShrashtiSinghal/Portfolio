@@ -13,13 +13,19 @@ const Projects = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
+    // Set initial visibility to true for mobile to prevent empty screen
+    const checkMobile = () => window.innerWidth <= 768;
+    if (checkMobile()) {
+      setIsVisible(true);
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05, rootMargin: '50px' } // Reduced threshold and added margin for better mobile detection
     );
 
     const handleMouseMove = (e) => {
@@ -35,9 +41,19 @@ const Projects = () => {
     }
 
     window.addEventListener('mousemove', handleMouseMove);
+    
+    // Add resize listener to handle orientation changes
+    const handleResize = () => {
+      if (checkMobile()) {
+        setIsVisible(true);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+
     return () => {
       observer.disconnect();
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
