@@ -140,33 +140,34 @@ const Contact = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
+          {/* Contact Information with Glass Morphism */}
           <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="space-y-8">
-              <div>
-                <h3 className="text-2xl font-semibold text-black mb-4">Get In Touch</h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  I'm always excited to connect with fellow innovators, potential collaborators, and anyone passionate about AI and technology. Whether you're looking to discuss a project, explore opportunities, or simply want to exchange ideas about the future of artificial intelligence.
+              <div className="glass-card bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-lg">
+                <h3 className="text-2xl font-black text-white mb-4 neon-text-orange">GET IN TOUCH</h3>
+                <p className="text-gray-300 leading-relaxed mb-6">
+                  I'm always excited to connect with fellow <span className="text-teal-400 font-bold">innovators</span>, 
+                  potential <span className="text-orange-400 font-bold">collaborators</span>, and anyone passionate about AI and technology. 
+                  Whether you're looking to discuss a project, explore opportunities, or simply want to exchange ideas about 
+                  <span className="text-teal-400 font-bold"> the future of artificial intelligence</span>.
                 </p>
               </div>
 
-              {/* Primary CTA */}
-              <Card className="bg-gradient-to-br from-teal-50 to-rose-50 border-0 shadow-lg">
-                <CardContent className="p-6 text-center">
-                  <LinkedinIcon className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                  <h4 className="font-semibold text-black mb-2">Connect on LinkedIn</h4>
-                  <p className="text-gray-600 text-sm mb-4">
-                    The best way to reach me and stay updated with my latest work
-                  </p>
-                  <Button 
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition-all duration-200 hover:scale-105"
-                    onClick={() => window.open("https://linkedin.com/in/shrashtisinghal", "_blank")}
-                  >
-                    <LinkedinIcon className="w-4 h-4 mr-2" />
-                    Connect Now
-                  </Button>
-                </CardContent>
-              </Card>
+              {/* Primary CTA with Glass Morphism */}
+              <div className="glass-card bg-gradient-to-br from-teal-500/20 to-orange-500/20 backdrop-blur-xl border border-white/30 rounded-2xl p-8 shadow-lg isometric-card">
+                <LinkedinIcon className="w-16 h-16 text-blue-400 mx-auto mb-6 animate-pulse" />
+                <h4 className="font-black text-white mb-3 text-xl text-center">CONNECT ON LINKEDIN</h4>
+                <p className="text-gray-300 text-sm mb-6 text-center">
+                  The best way to reach me and stay updated with my latest work
+                </p>
+                <Button 
+                  className="neo-brutal-btn w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-black py-3 transition-all duration-200 shadow-md hover:shadow-lg"
+                  onClick={() => window.open("https://linkedin.com/in/shrashtisinghal", "_blank")}
+                >
+                  <LinkedinIcon className="w-4 h-4 mr-2" />
+                  CONNECT NOW
+                </Button>
+              </div>
 
               {/* Contact Methods */}
               <div className="space-y-4">
