@@ -100,15 +100,15 @@ const Projects = () => {
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         {/* Neo-Brutalism Section Header */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-block mb-8">
-            <div className="neo-brutal-btn bg-gradient-to-r from-teal-500 to-orange-500 text-black font-black px-8 py-4 transform -rotate-1 shadow-md">
-              <h2 className="text-4xl sm:text-5xl font-black tracking-tight">
+        <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="inline-block mb-6 sm:mb-8">
+            <div className="neo-brutal-btn bg-gradient-to-r from-teal-500 to-orange-500 text-black font-black px-4 py-3 sm:px-8 sm:py-4 transform -rotate-1 shadow-md">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight">
                 MAJOR PROJECTS
               </h2>
             </div>
           </div>
-          <p className="text-xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed px-4">
             <span className="text-orange-400 font-bold">15 transformative AI/ML projects</span> spanning 
             <span className="text-teal-400 font-bold"> cybersecurity</span>, healthcare, and 
             <span className="text-orange-400 font-bold"> data intelligence</span>
