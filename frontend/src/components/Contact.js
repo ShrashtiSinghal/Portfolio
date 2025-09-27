@@ -123,13 +123,19 @@ const Contact = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-        {/* Section Header */}
+        {/* Neo-Brutalism Section Header */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-4xl sm:text-5xl font-light text-black mb-6">
-            Let's <span className="text-teal-600">Connect</span>
-          </h2>
-          <p className="text-xl text-gray-600 font-light max-w-3xl mx-auto leading-relaxed">
-            Ready to discuss AI innovations, collaboration opportunities, or just want to chat about the future of technology?
+          <div className="inline-block mb-8">
+            <div className="neo-brutal-btn bg-gradient-to-r from-orange-500 to-teal-500 text-black font-black px-8 py-4 transform rotate-1 shadow-md">
+              <h2 className="text-4xl sm:text-5xl font-black tracking-tight">
+                LET'S CONNECT
+              </h2>
+            </div>
+          </div>
+          <p className="text-xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed">
+            Ready to discuss <span className="text-orange-400 font-bold">AI innovations</span>, 
+            <span className="text-teal-400 font-bold"> collaboration opportunities</span>, or just want to chat about 
+            <span className="text-orange-400 font-bold"> the future of technology</span>?
           </p>
         </div>
 
