@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "./ui/button";
-import { Menu, X, LinkedinIcon } from "lucide-react";
+import { Menu, X, LinkedinIcon, Zap } from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,56 +23,62 @@ const Header = () => {
   };
 
   const navItems = [
-    { label: "Home", id: "hero" },
-    { label: "About", id: "about" },
-    { label: "Skills", id: "skills" },
-    { label: "Experience", id: "experience" },
-    { label: "Projects", id: "projects" },
-    { label: "Contact", id: "contact" },
+    { label: "HOME", id: "hero" },
+    { label: "ABOUT", id: "about" },
+    { label: "SKILLS", id: "skills" },
+    { label: "EXPERIENCE", id: "experience" },
+    { label: "PROJECTS", id: "projects" },
+    { label: "CONTACT", id: "contact" },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md"
+          ? "glass-card bg-black/90 backdrop-blur-2xl border-b border-white/10 shadow-brutal"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Neo-Brutalism Logo */}
           <div 
-            className="font-bold text-xl cursor-pointer transition-transform hover:scale-105"
+            className="font-black text-xl cursor-pointer transition-transform hover:scale-105 group"
             onClick={() => scrollToSection("hero")}
           >
-            <span className="text-black">Shrashti</span>
-            <span className="text-teal-600 ml-1">Singhal</span>
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-teal-500 rounded transform rotate-45 group-hover:-rotate-45 transition-transform duration-300"></div>
+              <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Shrashti</span>
+              <span className="bg-gradient-to-r from-orange-400 to-teal-400 bg-clip-text text-transparent neon-glow-orange">Singhal</span>
+            </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+          {/* Desktop Navigation with Glass Morphism */}
+          <nav className="hidden md:flex items-center space-x-1">
+            {navItems.map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-gray-700 hover:text-teal-600 font-medium transition-all duration-200 hover:-translate-y-0.5"
+                className="glass-nav-item px-4 py-2 rounded-lg font-bold text-sm text-gray-300 hover:text-white transition-all duration-200 hover:bg-white/10 hover:backdrop-blur-md border border-transparent hover:border-white/20 hover:shadow-lg hover:-translate-y-0.5 hover:neon-glow-teal"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {item.label}
               </button>
             ))}
+            
+            {/* Neo-Brutalism Connect Button */}
             <Button
-              className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-full transition-all duration-200 hover:scale-105"
+              className="neo-brutal-btn-small bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-black font-black px-6 py-2 ml-4 transform hover:scale-105 hover:-rotate-1 transition-all duration-200 shadow-md hover:shadow-lg"
               onClick={() => window.open("https://linkedin.com/in/shrashtisinghal", "_blank")}
             >
               <LinkedinIcon className="w-4 h-4 mr-2" />
-              Connect
+              CONNECT
             </Button>
           </nav>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button with 3D effect */}
           <button
-            className="md:hidden p-2 text-gray-700 hover:text-teal-600 transition-colors"
+            className="md:hidden p-3 glass-card bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-gray-300 hover:text-white transition-all duration-200 hover:bg-white/20 hover:scale-110"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -83,25 +89,26 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation with Glass Morphism */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-t">
-            <nav className="px-6 py-4 space-y-4">
-              {navItems.map((item) => (
+          <div className="md:hidden glass-card bg-black/95 backdrop-blur-2xl border border-white/20 rounded-2xl mt-4 shadow-brutal animate-slide-down">
+            <nav className="px-6 py-6 space-y-4">
+              {navItems.map((item, index) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="block text-gray-700 hover:text-teal-600 font-medium transition-colors w-full text-left py-2"
+                  className="block w-full text-left text-gray-300 hover:text-white font-bold py-3 px-4 rounded-lg transition-all duration-200 hover:bg-white/10 hover:backdrop-blur-md border border-transparent hover:border-white/20 hover:translate-x-2"
+                  style={{ animationDelay: `${index * 0.05}s` }}
                 >
                   {item.label}
                 </button>
               ))}
               <Button
-                className="w-full bg-teal-600 hover:bg-teal-700 text-white py-2 rounded-full mt-4"
+                className="w-full neo-brutal-btn bg-gradient-to-r from-teal-500 to-teal-400 text-black font-black py-3 mt-4 transform hover:scale-105 transition-all duration-200 shadow-md"
                 onClick={() => window.open("https://linkedin.com/in/shrashtisinghal", "_blank")}
               >
                 <LinkedinIcon className="w-4 h-4 mr-2" />
-                Connect on LinkedIn
+                CONNECT ON LINKEDIN
               </Button>
             </nav>
           </div>
