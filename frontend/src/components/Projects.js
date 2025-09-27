@@ -366,20 +366,20 @@ const Projects = () => {
                   />
                 </div>
                 
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                   <div>
-                    <h3 className="text-lg font-black text-white mb-3">PROJECT OVERVIEW</h3>
-                    <p className="text-gray-300 leading-relaxed">{selectedProject.longDescription}</p>
+                    <h3 className="text-base sm:text-lg font-black text-white mb-3">PROJECT OVERVIEW</h3>
+                    <p className="text-gray-300 leading-relaxed text-sm sm:text-base">{selectedProject.longDescription}</p>
                   </div>
                   
                   <div>
-                    <h3 className="text-lg font-black text-white mb-3 flex items-center">
-                      <TrendingUp className="w-5 h-5 mr-2 text-orange-400" />
+                    <h3 className="text-base sm:text-lg font-black text-white mb-3 flex items-center">
+                      <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-orange-400" />
                       KEY IMPACT & RESULTS
                     </h3>
                     <ul className="space-y-2">
                       {selectedProject.impact.map((impact, index) => (
-                        <li key={index} className="text-gray-300 flex items-start">
+                        <li key={index} className="text-gray-300 flex items-start text-sm sm:text-base">
                           <span className="w-2 h-2 bg-teal-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span>{impact}</span>
                         </li>
@@ -388,10 +388,10 @@ const Projects = () => {
                   </div>
                   
                   <div>
-                    <h3 className="text-lg font-black text-white mb-3">TECHNOLOGIES & TOOLS</h3>
+                    <h3 className="text-base sm:text-lg font-black text-white mb-3">TECHNOLOGIES & TOOLS</h3>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.technologies.map((tech, index) => (
-                        <Badge key={index} className="neo-brutal-btn-small bg-gray-800/80 text-gray-300 text-sm py-2 px-4 border border-gray-700/50">
+                        <Badge key={index} className="neo-brutal-btn-small bg-gray-800/80 text-gray-300 text-xs sm:text-sm py-1 sm:py-2 px-2 sm:px-4 border border-gray-700/50">
                           {tech}
                         </Badge>
                       ))}
