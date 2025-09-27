@@ -160,7 +160,7 @@ const About = () => {
           <div className="glass-card bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-3xl p-8 sm:p-12 shadow-brutal isometric-card ar-hover">
             <div className="prose prose-lg max-w-none">
               <p className="text-gray-300 leading-relaxed mb-6 text-lg">
-                Currently leading AI initiatives at <span className="font-black text-teal-400 neon-glow-teal">Culinda Inc.</span>, 
+                Currently leading AI initiatives at <span className="font-black text-teal-400">Culinda Inc.</span>, 
                 where I spearhead the development of advanced ML solutions to proactively identify and mitigate vulnerabilities 
                 in healthcare infrastructure. My expertise spans integrating AI with EDR, threat intelligence platforms, and 
                 regulatory-compliant environments including <span className="font-bold text-orange-400">HIPAA</span> and 
