@@ -325,25 +325,25 @@ const Projects = () => {
         {/* Project Detail Modal with Dark Theme */}
         {selectedProject && (
           <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4" onClick={closeModal}>
-            <div className="glass-card bg-gradient-to-br from-black/90 to-gray-900/90 backdrop-blur-2xl border border-white/30 max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-3xl shadow-xl" onClick={e => e.stopPropagation()}>
-              <CardContent className="p-8">
-                <div className="flex justify-between items-start mb-6">
-                  <div className="flex-1">
-                    <h2 className="text-2xl font-black text-white mb-2">{selectedProject.title}</h2>
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+            <div className="glass-card bg-gradient-to-br from-black/90 to-gray-900/90 backdrop-blur-2xl border border-white/30 max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl shadow-xl" onClick={e => e.stopPropagation()}>
+              <CardContent className="p-4 sm:p-6 lg:p-8">
+                <div className="flex justify-between items-start mb-4 sm:mb-6">
+                  <div className="flex-1 pr-4">
+                    <h2 className="text-lg sm:text-xl lg:text-2xl font-black text-white mb-2 line-clamp-3">{selectedProject.title}</h2>
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-400">
                       <div className="flex items-center gap-1">
-                        <Building className="w-4 h-4 text-teal-400" />
-                        <span>{selectedProject.company}</span>
+                        <Building className="w-3 h-3 sm:w-4 sm:h-4 text-teal-400" />
+                        <span className="line-clamp-1">{selectedProject.company}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <User className="w-4 h-4 text-orange-400" />
-                        <span>{selectedProject.role}</span>
+                        <User className="w-3 h-3 sm:w-4 sm:h-4 text-orange-400" />
+                        <span className="line-clamp-1">{selectedProject.role}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4 text-teal-400" />
+                        <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-teal-400" />
                         <span>{selectedProject.year}</span>
                       </div>
-                      <Badge className={`neo-brutal-btn-small font-bold border ${getStatusColor(selectedProject.status)}`}>
+                      <Badge className={`neo-brutal-btn-small font-bold border text-xs ${getStatusColor(selectedProject.status)}`}>
                         {selectedProject.status}
                       </Badge>
                     </div>
@@ -351,10 +351,10 @@ const Projects = () => {
                   <Button 
                     variant="ghost" 
                     onClick={closeModal} 
-                    className="p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-full"
+                    className="p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-full flex-shrink-0"
                   >
                     <span className="sr-only">Close</span>
-                    ✕
+                    <span className="text-lg">✕</span>
                   </Button>
                 </div>
                 
