@@ -137,7 +137,7 @@ const Footer = () => {
             {/* Contact Info with 3D Effects */}
             <div>
               <div className="glass-card bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 h-full isometric-card">
-                <h4 className="text-lg font-black mb-6 text-white neon-text-orange">GET IN TOUCH</h4>
+                <h4 className="text-lg font-black mb-6 text-white">GET IN TOUCH</h4>
                 <div className="space-y-4">
                   <div className="group">
                     <p className="text-gray-500 text-sm font-bold tracking-wide">EMAIL</p>
