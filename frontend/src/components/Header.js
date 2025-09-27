@@ -49,7 +49,7 @@ const Header = () => {
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-teal-500 rounded transform rotate-45 group-hover:-rotate-45 transition-transform duration-300"></div>
               <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Shrashti</span>
-              <span className="bg-gradient-to-r from-orange-400 to-teal-400 bg-clip-text text-transparent neon-glow-orange">Singhal</span>
+              <span className="bg-gradient-to-r from-orange-400 to-teal-400 bg-clip-text text-transparent">Singhal</span>
             </div>
           </div>
 
