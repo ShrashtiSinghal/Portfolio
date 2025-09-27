@@ -1,68 +1,38 @@
-name: Deploy Portfolio to GitHub Pages (Simple)
+name: Deploy Portfolio - No Cache (Backup)
 
 on:
-  push:
-    branches: [ main, master ]
   workflow_dispatch:
+  # Remove automatic push trigger to avoid conflicts
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
           
-      - name: Install dependencies
+      - name: Install and Build
+        working-directory: ./frontend
         run: |
-          if [ -f "frontend/package.json" ]; then
-            cd frontend
-            npm ci
-          elif [ -f "package.json" ]; then
-            npm ci
-          else
-            echo "No package.json found!"
-            exit 1
-          fi
-          
-      - name: Build
-        run: |
-          if [ -f "frontend/package.json" ]; then
-            cd frontend
-            npm run build
-          else
-            npm run build
-          fi
+          npm install --no-package-lock
+          npm run build
         env:
           CI: false
           
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+      - uses: actions/configure-pages@v4
         
-      - name: Upload to GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v3
         with:
-          path: |
-            frontend/build
-            build
+          path: ./frontend/build
             
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4</content>
+      - uses: actions/deploy-pages@v4
+        id: deployment</content>
 </invoke>
