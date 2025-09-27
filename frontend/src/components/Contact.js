@@ -91,8 +91,38 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-gray-50/50">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section 
+      id="contact" 
+      className="py-24 bg-black relative overflow-hidden"
+      style={{
+        background: `
+          radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 20% 80%, rgba(23, 195, 178, 0.1) 0%, transparent 50%),
+          linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%)
+        `
+      }}
+    >
+      {/* Floating 3D Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {Array.from({ length: 6 }).map((_, index) => (
+          <div
+            key={index}
+            className={`absolute opacity-10 ${index % 2 === 0 ? 'text-orange-400' : 'text-teal-400'} animate-float`}
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${index * 0.5}s`,
+              animationDuration: `${3 + Math.random() * 2}s`
+            }}
+          >
+            {index % 3 === 0 ? <Mail className="w-8 h-8" /> : 
+             index % 3 === 1 ? <LinkedinIcon className="w-6 h-6" /> : 
+             <Send className="w-7 h-7" />}
+          </div>
+        ))}
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         {/* Section Header */}
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl sm:text-5xl font-light text-black mb-6">
