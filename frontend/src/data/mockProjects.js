@@ -11,7 +11,7 @@ export const mockProjects = [
     longDescription: "Led the development of 'Night Hawk', a revolutionary agentic AI platform that orchestrates sub-agents (MongoDB, SQL, Visualization) with embedded schema-compliant guardrails for safe execution. Built on FastAPI and WebSockets to support streaming queries with incremental responses, enabling real-time Plotly-based insights for hospital threat analysis.",
     technologies: ["GPT-4o", "OpenAI Agents SDK", "FastAPI", "WebSockets", "MongoDB", "Plotly", "Langfuse"],
     impact: ["Real-time threat analysis", "Schema-compliant guardrails", "Streaming query responses"],
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=500&h=300&fit=crop&auto=format",
+    image: "https://customer-assets.emergentagent.com/job_187402a5-927c-41c5-9be1-d079b56e1d1d/artifacts/xv3yik0i_darkeye_mascot.png",
     featured: true
   },
   {
