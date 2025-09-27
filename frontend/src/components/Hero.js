@@ -148,7 +148,7 @@ const Hero = () => {
                 </Button>
                 <Button
                   className="neo-brutal-btn-outline border-2 border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-black font-black px-8 py-4 text-lg transform hover:scale-105 hover:rotate-1 transition-all duration-200 shadow-md hover:shadow-lg"
-                  onClick={() => window.open("https://linkedin.com/in/shrashtisinghal", "_blank")}
+                  onClick={() => window.open("https://www.linkedin.com/in/shrashti-singhal-1869166b/", "_blank")}
                 >
                   <LinkedinIcon className="w-5 h-5 mr-2" />
                   CONNECT NOW
