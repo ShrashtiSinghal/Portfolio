@@ -126,18 +126,18 @@ const Projects = () => {
                 onClick={() => handleProjectClick(project)}
               >
                 {/* Glass Morphism Featured Card */}
-                <div className="glass-card bg-gradient-to-br from-orange-500/10 to-teal-500/10 backdrop-blur-xl border border-white/20 hover:border-white/40 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:-rotate-1 isometric-card ar-hover">
+                <div className="glass-card bg-gradient-to-br from-orange-500/10 to-teal-500/10 backdrop-blur-xl border border-white/20 hover:border-white/40 rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:-rotate-1 isometric-card ar-hover">
                   <div className="mb-4">
                     <img 
                       src={project.image} 
                       alt={project.title}
-                      className="w-full h-32 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-40 sm:h-32 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <h4 className="font-black text-white mb-2 text-sm line-clamp-2">{project.title}</h4>
-                  <p className="text-gray-400 text-xs mb-3 line-clamp-2">{project.description}</p>
-                  <div className="flex justify-between items-center">
-                    <Badge className={`neo-brutal-btn-small text-xs font-bold border ${getStatusColor(project.status)}`}>
+                  <h4 className="font-black text-white mb-2 text-sm sm:text-base line-clamp-2">{project.title}</h4>
+                  <p className="text-gray-400 text-xs sm:text-sm mb-3 line-clamp-3">{project.description}</p>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                    <Badge className={`neo-brutal-btn-small text-xs font-bold border w-fit ${getStatusColor(project.status)}`}>
                       {project.status}
                     </Badge>
                     <span className="text-xs text-gray-500">{project.year}</span>
