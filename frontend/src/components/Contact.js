@@ -169,31 +169,31 @@ const Contact = () => {
                 </Button>
               </div>
 
-              {/* Contact Methods */}
+              {/* Contact Methods with Glass Morphism */}
               <div className="space-y-4">
                 {contactInfo.map((contact, index) => (
-                  <Card 
+                  <div 
                     key={index} 
-                    className={`bg-white hover:shadow-md transition-all duration-300 border-0 ${contact.action ? 'cursor-pointer hover:-translate-y-1' : ''}`}
+                    className={`glass-card bg-black/40 backdrop-blur-md border border-white/20 hover:border-white/40 rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 isometric-card ${contact.action ? 'cursor-pointer hover:-translate-y-1 ar-hover' : ''}`}
                     onClick={contact.action}
                   >
-                    <CardContent className="p-4">
-                      <div className="flex items-center gap-4">
-                        <div className="p-3 bg-gray-50 rounded-full">
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 bg-gradient-to-br from-gray-800/80 to-gray-700/80 rounded-xl border border-white/10">
+                        <div className="text-gray-300">
                           {contact.icon}
                         </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-black text-sm">{contact.title}</h4>
-                          <p className="text-gray-600 text-sm">{contact.value}</p>
-                        </div>
-                        {contact.action && (
-                          <div className="text-gray-400">
-                            <Send className="w-4 h-4" />
-                          </div>
-                        )}
                       </div>
-                    </CardContent>
-                  </Card>
+                      <div className="flex-1">
+                        <h4 className="font-bold text-white text-sm">{contact.title}</h4>
+                        <p className="text-gray-400 text-sm">{contact.value}</p>
+                      </div>
+                      {contact.action && (
+                        <div className="text-teal-400">
+                          <Send className="w-4 h-4" />
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
