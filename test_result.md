@@ -122,15 +122,18 @@
 
   - task: "Fix LinkedIn URL functionality"
     implemented: true
-    working: "unknown"
+    working: true
     file: "/app/frontend/src/components/Header.js, /app/frontend/src/components/Hero.js"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "unknown"
           agent: "main"
           comment: "LinkedIn URLs found in Header.js (lines 72, 108) and Hero.js (line 151). URL format appears correct: 'https://linkedin.com/in/shrashtisinghal' but needs testing."
+        - working: true
+          agent: "main"
+          comment: "VERIFIED: LinkedIn URLs are working correctly. All buttons (header CONNECT, hero CONNECT NOW, mobile menu CONNECT ON LINKEDIN) properly open 'https://www.linkedin.com/in/shrashtisinghal' in new tabs."
 
   - task: "Fix mobile header overlap issue"
     implemented: true
