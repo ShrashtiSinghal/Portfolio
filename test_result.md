@@ -101,3 +101,61 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+## user_problem_statement: Fix mobile responsiveness of Projects section (renders as empty black area, gets stuck on click), fix mobile header overlap, and fix non-functional LinkedIn URLs
+
+## frontend:
+  - task: "Fix mobile Projects section rendering"
+    implemented: false
+    working: false
+    file: "/app/frontend/src/components/Projects.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "main"
+          comment: "Projects section shows as empty black area on mobile viewport (375x667). Script detects 64 project cards but they're not visible. Issue likely with CSS visibility or mobile responsive classes."
+
+  - task: "Fix LinkedIn URL functionality"
+    implemented: true
+    working: "unknown"
+    file: "/app/frontend/src/components/Header.js, /app/frontend/src/components/Hero.js"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: "unknown"
+          agent: "main"
+          comment: "LinkedIn URLs found in Header.js (lines 72, 108) and Hero.js (line 151). URL format appears correct: 'https://linkedin.com/in/shrashtisinghal' but needs testing."
+
+  - task: "Fix mobile header overlap issue"
+    implemented: true
+    working: "unknown"
+    file: "/app/frontend/src/components/Header.js"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: "unknown"
+          agent: "main"
+          comment: "Header appears to be functioning correctly in mobile view during initial testing. May need further investigation."
+
+## metadata:
+  created_by: "main_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: false
+
+## test_plan:
+  current_focus:
+    - "Fix mobile Projects section rendering"
+    - "Test LinkedIn URL functionality"
+    - "Verify mobile header behavior"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+## agent_communication:
+    - agent: "main"
+      message: "Identified critical mobile responsiveness issues. Projects section completely invisible on mobile despite 64 cards being detected by script. Starting systematic debugging of CSS and component structure."
