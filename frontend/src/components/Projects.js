@@ -154,17 +154,21 @@ const Projects = () => {
         {/* Filters and View Toggle with Glass Morphism */}
         <div className={`mb-8 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="glass-card bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-md">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-              <div className="flex items-center gap-4">
-                <Filter className="w-5 h-5 text-teal-400" />
-                <div className="flex flex-wrap gap-2">
+            <div className="flex flex-col gap-4">
+              {/* Filters Row */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                <div className="flex items-center gap-2">
+                  <Filter className="w-5 h-5 text-teal-400" />
+                  <span className="text-gray-300 text-sm font-bold">FILTER:</span>
+                </div>
+                <div className="flex flex-wrap gap-2 w-full sm:w-auto">
                   {categories.map((category) => (
                     <Button
                       key={category}
                       variant={selectedCategory === category ? "default" : "outline"}
                       size="sm"
                       onClick={() => setSelectedCategory(category)}
-                      className={`neo-brutal-btn-small text-xs font-bold transition-all duration-200 ${
+                      className={`neo-brutal-btn-small text-xs font-bold transition-all duration-200 px-3 py-1 ${
                         selectedCategory === category 
                           ? "bg-teal-600 hover:bg-teal-700 text-black" 
                           : "bg-transparent border-2 border-gray-600 text-gray-300 hover:border-teal-400 hover:text-teal-400"
@@ -176,23 +180,29 @@ const Projects = () => {
                 </div>
               </div>
               
-              <div className="flex items-center gap-2 bg-gray-800/50 rounded-lg p-1">
-                <Button
-                  variant={viewMode === "grid" ? "default" : "ghost"}
-                  size="sm"
-                  onClick={() => setViewMode("grid")}
-                  className={`p-2 ${viewMode === "grid" ? 'bg-teal-600 text-black' : 'text-gray-400 hover:text-white'}`}
-                >
-                  <Grid className="w-4 h-4" />
-                </Button>
-                <Button
-                  variant={viewMode === "list" ? "default" : "ghost"}
-                  size="sm" 
-                  onClick={() => setViewMode("list")}
-                  className={`p-2 ${viewMode === "list" ? 'bg-teal-600 text-black' : 'text-gray-400 hover:text-white'}`}
-                >
-                  <List className="w-4 h-4" />
-                </Button>
+              {/* View Toggle Row */}
+              <div className="flex justify-between items-center">
+                <div className="text-gray-400 text-sm">
+                  Showing {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''}
+                </div>
+                <div className="flex items-center gap-2 bg-gray-800/50 rounded-lg p-1">
+                  <Button
+                    variant={viewMode === "grid" ? "default" : "ghost"}
+                    size="sm"
+                    onClick={() => setViewMode("grid")}
+                    className={`p-2 ${viewMode === "grid" ? 'bg-teal-600 text-black' : 'text-gray-400 hover:text-white'}`}
+                  >
+                    <Grid className="w-4 h-4" />
+                  </Button>
+                  <Button
+                    variant={viewMode === "list" ? "default" : "ghost"}
+                    size="sm" 
+                    onClick={() => setViewMode("list")}
+                    className={`p-2 ${viewMode === "list" ? 'bg-teal-600 text-black' : 'text-gray-400 hover:text-white'}`}
+                  >
+                    <List className="w-4 h-4" />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
