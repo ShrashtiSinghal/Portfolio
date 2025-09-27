@@ -112,7 +112,7 @@ const Hero = () => {
                       </span>
                       <br />
                       {/* Reduced Neon Glow with proper spacing */}
-                      <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-teal-400 bg-clip-text text-transparent animate-gradient-x neon-glow-subtle">
+                      <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-teal-400 bg-clip-text text-transparent animate-gradient-x">
                         Singhal
                       </span>
                     </h1>
