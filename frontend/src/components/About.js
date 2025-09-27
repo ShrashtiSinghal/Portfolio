@@ -282,37 +282,7 @@ const About = () => {
           ))}
         </div>
 
-        {/* 3D Stats Section */}
-        <div className={`mt-16 transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="glass-card bg-gradient-to-r from-orange-500/20 via-black/60 to-teal-500/20 backdrop-blur-2xl border border-white/30 rounded-3xl p-8 shadow-brutal">
-            <div className="grid md:grid-cols-3 gap-8 text-center">
-              <div className="group">
-                <div className="isometric-card hover:scale-110 transition-all duration-300">
-                  <div className="text-5xl font-black bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent neon-glow-orange mb-2">
-                    12+
-                  </div>
-                  <div className="text-gray-300 font-bold tracking-wide">YEARS OF EXPERIENCE</div>
-                </div>
-              </div>
-              <div className="group">
-                <div className="isometric-card hover:scale-110 transition-all duration-300">
-                  <div className="text-5xl font-black bg-gradient-to-r from-teal-400 to-teal-500 bg-clip-text text-transparent neon-glow-teal mb-2">
-                    50+
-                  </div>
-                  <div className="text-gray-300 font-bold tracking-wide">TECHNOLOGIES MASTERED</div>
-                </div>
-              </div>
-              <div className="group">
-                <div className="isometric-card hover:scale-110 transition-all duration-300">
-                  <div className="text-5xl font-black bg-gradient-to-r from-orange-400 to-teal-400 bg-clip-text text-transparent animate-gradient-x mb-2">
-                    15
-                  </div>
-                  <div className="text-gray-300 font-bold tracking-wide">MAJOR PROJECTS DELIVERED</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Stats section removed - kept only in Hero component */}
       </div>
     </section>
   );
