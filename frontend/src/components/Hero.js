@@ -205,7 +205,7 @@ const Hero = () => {
                   </div>
                   
                   <div className="absolute -right-6 bottom-8 glass-card bg-gradient-to-r from-teal-500/90 to-teal-400/90 backdrop-blur-md text-black px-4 py-3 rounded-xl shadow-md transform rotate-2 animate-float" style={{ animationDelay: '0.5s' }}>
-                    <div className="text-xl font-black">15+</div>
+                    <div className="text-xl font-black">15</div>
                     <div className="text-xs font-bold">PROJECTS</div>
                   </div>
                 </div>
