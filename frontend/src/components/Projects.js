@@ -227,23 +227,23 @@ const Projects = () => {
                   </div>
                   
                   <div className="space-y-3">
-                    <div className="flex justify-between items-start">
-                      <h3 className="font-black text-white text-lg line-clamp-2 flex-1">{project.title}</h3>
-                      <Badge className={`neo-brutal-btn-small text-xs font-bold border ml-2 ${getStatusColor(project.status)}`}>
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                      <h3 className="font-black text-white text-base sm:text-lg line-clamp-2 flex-1">{project.title}</h3>
+                      <Badge className={`neo-brutal-btn-small text-xs font-bold border w-fit ${getStatusColor(project.status)}`}>
                         {project.status}
                       </Badge>
                     </div>
                     
                     <p className="text-gray-400 text-sm line-clamp-3">{project.description}</p>
                     
-                    <div className="flex items-center gap-4 text-xs text-gray-500">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs text-gray-500">
                       <div className="flex items-center gap-1">
                         <Calendar className="w-3 h-3 text-teal-400" />
                         <span>{project.year}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <Building className="w-3 h-3 text-orange-400" />
-                        <span>{project.company}</span>
+                        <span className="line-clamp-1">{project.company}</span>
                       </div>
                     </div>
                     
