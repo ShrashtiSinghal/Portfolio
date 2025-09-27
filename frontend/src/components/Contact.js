@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
-import { LinkedinIcon, Github, Mail, MapPin, BookOpen, Send } from "lucide-react";
+import { LinkedinIcon, Github, Mail, MapPin, BookOpen, Send, Cpu, Shield, Zap } from "lucide-react";
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,12 +23,23 @@ const Contact = () => {
       { threshold: 0.1 }
     );
 
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100,
+      });
+    };
+
     const element = document.getElementById("contact");
     if (element) {
       observer.observe(element);
     }
 
-    return () => observer.disconnect();
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   const handleInputChange = (e) => {
