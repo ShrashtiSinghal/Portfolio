@@ -128,10 +128,10 @@ export const mockProjects = [
     company: "Culinda Inc.",
     role: "Principal Data Scientist",
     description: "Real-time threat detection using deep learning on IoT and network data from hospital systems.",
-    longDescription: "Built a comprehensive real-time threat detection system using advanced deep learning techniques on IoT and network data from hospital systems. Implemented robust time-series anomaly detection model enabling proactive incident response and mitigation.",
-    technologies: ["Deep Learning", "IoT Security", "Time-series Analysis", "Anomaly Detection", "Hospital Systems"],
-    impact: ["Real-time threat detection", "Proactive incident response", "Healthcare security"],
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=500&h=300&fit=crop&auto=format",
+    longDescription: "Built a comprehensive real-time threat detection system using advanced deep learning techniques on IoT and network data from hospital systems. Implemented robust time-series anomaly detection model enabling proactive incident response and mitigation for healthcare PII and medical device security.",
+    technologies: ["Deep Learning", "IoT Security", "Time-series Analysis", "Anomaly Detection", "Hospital Systems", "PII Protection"],
+    impact: ["Real-time threat detection", "Proactive incident response", "Healthcare security", "IoT/IomT monitoring"],
+    image: "https://images.unsplash.com/photo-1711980815489-5fdd9e24adb0?w=500&h=300&fit=crop&auto=format",
     featured: false
   },
   {
