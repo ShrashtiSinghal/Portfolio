@@ -68,7 +68,7 @@ const Contact = () => {
       icon: <LinkedinIcon className="w-6 h-6 text-blue-600" />,
       title: "LinkedIn",
       value: "Connect with me",
-      action: () => window.open("https://linkedin.com/in/shrashtisinghal", "_blank")
+      action: () => window.open("https://www.linkedin.com/in/shrashti-singhal-1869166b/", "_blank")
     },
     {
       icon: <Github className="w-6 h-6 text-gray-700" />,
