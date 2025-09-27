@@ -199,81 +199,79 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Contact Form with Glass Morphism */}
           <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            <Card className="bg-white shadow-lg border-0">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-semibold text-black mb-6">Send a Message</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Your Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-colors"
-                      placeholder="Enter your full name"
-                    />
-                  </div>
+            <div className="glass-card bg-gradient-to-br from-black/60 to-gray-900/60 backdrop-blur-2xl border border-white/30 rounded-3xl p-8 shadow-lg isometric-card">
+              <h3 className="text-2xl font-black text-white mb-6 neon-text-teal">SEND A MESSAGE</h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-sm font-bold text-gray-300 mb-2 tracking-wide">
+                    YOUR NAME *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-black/40 border border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-all duration-200 text-white placeholder-gray-400 backdrop-blur-sm"
+                    placeholder="Enter your full name"
+                  />
+                </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-colors"
-                      placeholder="Enter your email"
-                    />
-                  </div>
+                <div>
+                  <label className="block text-sm font-bold text-gray-300 mb-2 tracking-wide">
+                    EMAIL ADDRESS *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-black/40 border border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-all duration-200 text-white placeholder-gray-400 backdrop-blur-sm"
+                    placeholder="Enter your email"
+                  />
+                </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-colors"
-                      placeholder="What's this about?"
-                    />
-                  </div>
+                <div>
+                  <label className="block text-sm font-bold text-gray-300 mb-2 tracking-wide">
+                    SUBJECT
+                  </label>
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-black/40 border border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-orange-600 outline-none transition-all duration-200 text-white placeholder-gray-400 backdrop-blur-sm"
+                    placeholder="What's this about?"
+                  />
+                </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-colors resize-none"
-                      placeholder="Tell me about your project, idea, or just say hello..."
-                    ></textarea>
-                  </div>
+                <div>
+                  <label className="block text-sm font-bold text-gray-300 mb-2 tracking-wide">
+                    MESSAGE *
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    rows={6}
+                    className="w-full px-4 py-3 bg-black/40 border border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-all duration-200 text-white placeholder-gray-400 backdrop-blur-sm resize-none"
+                    placeholder="Tell me about your project, idea, or just say hello..."
+                  ></textarea>
+                </div>
 
-                  <Button 
-                    type="submit"
-                    className="w-full bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
-                  >
-                    <Send className="w-4 h-4 mr-2" />
-                    Send Message
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+                <Button 
+                  type="submit"
+                  className="neo-brutal-btn w-full bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-500 hover:to-teal-400 text-black font-black py-4 transition-all duration-200 shadow-md hover:shadow-lg"
+                >
+                  <Send className="w-4 h-4 mr-2" />
+                  SEND MESSAGE
+                </Button>
+              </form>
+            </div>
 
             {/* Alternative Contact Note */}
             <div className="mt-6 text-center">
