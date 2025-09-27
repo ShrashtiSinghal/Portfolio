@@ -109,7 +109,7 @@ const Projects = () => {
             </div>
           </div>
           <p className="text-xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed">
-            <span className="text-orange-400 font-bold">15+ transformative AI/ML projects</span> spanning 
+            <span className="text-orange-400 font-bold">15 transformative AI/ML projects</span> spanning 
             <span className="text-teal-400 font-bold"> cybersecurity</span>, healthcare, and 
             <span className="text-orange-400 font-bold"> data intelligence</span>
           </p>
