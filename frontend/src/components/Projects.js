@@ -140,7 +140,7 @@ const Projects = () => {
         {/* Featured Projects Highlight with Dark Theme */}
         <div className={`mb-8 sm:mb-12 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h3 className="text-xl sm:text-2xl font-black text-white mb-6 sm:mb-8 text-center px-4">FEATURED PROJECTS</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-2 sm:px-0">
             {featuredProjects.map((project, index) => (
               <div 
                 key={project.id} 
