@@ -173,9 +173,9 @@ const About = () => {
               </p>
               <p className="text-gray-300 leading-relaxed text-lg">
                 My journey in AI spans from founding multiple successful startups including 
-                <span className="font-bold text-teal-400 neon-glow-teal"> DermaAI</span>, 
-                <span className="font-bold text-teal-400 neon-glow-teal"> ChestAI</span>, and 
-                <span className="font-bold text-orange-400 neon-glow-orange"> NeedyData</span> (acquired by a Canadian firm) 
+                <span className="font-bold text-teal-400"> DermaAI</span>, 
+                <span className="font-bold text-teal-400"> ChestAI</span>, and 
+                <span className="font-bold text-orange-400"> NeedyData</span> (acquired by a Canadian firm) 
                 to working with Fortune 500 companies like <span className="font-bold text-orange-400">Delta Airlines</span> and 
                 <span className="font-bold text-orange-400"> Intel Deutschland</span>.
               </p>
