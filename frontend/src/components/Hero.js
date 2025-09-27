@@ -104,24 +104,25 @@ const Hero = () => {
                 </div>
                 
                 <div>
-                  {/* Glass Morphism Name Container - Reduced Shadow */}
-                  <div className="glass-card p-8 border border-white/20 backdrop-blur-xl bg-white/5 rounded-2xl mb-6 shadow-lg">
-                    <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-tight">
+                  {/* Glass Morphism Name Container - Fixed Spacing */}
+                  <div className="glass-card p-6 sm:p-8 border border-white/20 backdrop-blur-xl bg-white/5 rounded-2xl mb-8 shadow-lg">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-4">
                       <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                         Shrashti
                       </span>
                       <br />
-                      {/* Reduced Neon Glow */}
+                      {/* Reduced Neon Glow with proper spacing */}
                       <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-teal-400 bg-clip-text text-transparent animate-gradient-x neon-glow-subtle">
                         Singhal
                       </span>
                     </h1>
-                  </div>
-                  
-                  <div className="h-12 overflow-hidden mb-4">
-                    <p className="text-2xl sm:text-3xl text-teal-400 font-light animate-fade-in-up">
-                      {roles[currentRole]}
-                    </p>
+                    
+                    {/* Role display inside the card to prevent overlap */}
+                    <div className="h-8 overflow-hidden">
+                      <p className="text-lg sm:text-xl text-teal-400 font-light animate-fade-in-up">
+                        {roles[currentRole]}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
