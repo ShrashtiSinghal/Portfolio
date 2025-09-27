@@ -150,8 +150,8 @@ const About = () => {
             </div>
           </div>
           <p className="text-xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed">
-            Passionate about aligning <span className="text-orange-400 font-bold neon-glow-orange">next-gen AI architectures</span> with 
-            <span className="text-teal-400 font-bold neon-glow-teal"> real-world business impact</span>
+            Passionate about aligning <span className="text-orange-400 font-bold">next-gen AI architectures</span> with 
+            <span className="text-teal-400 font-bold"> real-world business impact</span>
           </p>
         </div>
 
