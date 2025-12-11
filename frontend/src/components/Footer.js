@@ -13,7 +13,7 @@ const Footer = () => {
     },
     {
       icon: <Github className="w-5 h-5" />,
-      href: "https://github.com/shrashtisinghal", 
+      href: "https://github.com/shrashtisinghal",
       label: "GitHub",
       color: "hover:text-gray-300 hover:neon-glow-orange"
     },
@@ -47,7 +47,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black border-t border-white/10 relative overflow-hidden">
+    <footer className="bg-background border-t border-border/10 relative overflow-hidden">
       {/* Floating Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {Array.from({ length: 6 }).map((_, index) => (
@@ -61,9 +61,9 @@ const Footer = () => {
               animationDuration: `${4 + Math.random() * 2}s`
             }}
           >
-            {index % 3 === 0 ? <Cpu className="w-12 h-12" /> : 
-             index % 3 === 1 ? <Shield className="w-10 h-10" /> : 
-             <Zap className="w-8 h-8" />}
+            {index % 3 === 0 ? <Cpu className="w-12 h-12" /> :
+              index % 3 === 1 ? <Shield className="w-10 h-10" /> :
+                <Zap className="w-8 h-8" />}
           </div>
         ))}
       </div>
@@ -72,15 +72,15 @@ const Footer = () => {
         {/* Main Footer Content */}
         <div className="py-12">
           <div className="grid md:grid-cols-4 gap-8">
-            
+
             {/* Brand Section with Glass Morphism */}
             <div className="md:col-span-2">
-              <div className="glass-card bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 isometric-card">
+              <div className="glass-card bg-card/5 backdrop-blur-xl border border-border/10 rounded-2xl p-6 isometric-card">
                 <div className="mb-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-teal-500 rounded-lg transform rotate-12 animate-pulse-slow"></div>
                     <h3 className="text-2xl font-black">
-                      <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Shrashti</span>
+                      <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">Shrashti</span>
                       <span className="bg-gradient-to-r from-orange-400 to-teal-400 bg-clip-text text-transparent ml-2">Singhal</span>
                     </h3>
                   </div>
@@ -88,13 +88,13 @@ const Footer = () => {
                     AI ENGINEER | DATA SCIENTIST | PRODUCT MANAGER
                   </div>
                 </div>
-                
-                <p className="text-gray-400 leading-relaxed max-w-md mb-6">
-                  Transforming complex <span className="text-orange-400 font-bold">AI technologies</span> into real-world solutions across 
-                  <span className="text-teal-400 font-bold"> cybersecurity</span>, healthcare, and data intelligence. 
-                  <span className="text-white font-bold"> Building the future, one algorithm at a time</span>.
+
+                <p className="text-muted-foreground leading-relaxed max-w-md mb-6">
+                  Transforming complex <span className="text-orange-400 font-bold">AI technologies</span> into real-world solutions across
+                  <span className="text-teal-400 font-bold"> cybersecurity</span>, healthcare, and data intelligence.
+                  <span className="text-foreground font-bold"> Building the future, one algorithm at a time</span>.
                 </p>
-                
+
                 {/* 3D Social Links */}
                 <div className="flex space-x-4">
                   {socialLinks.map((link, index) => (
@@ -103,7 +103,7 @@ const Footer = () => {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`isometric-social-btn glass-card p-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl ${link.color} text-gray-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl group`}
+                      className={`isometric-social-btn glass-card p-4 bg-muted/10 backdrop-blur-md border border-border/20 rounded-xl ${link.color} text-muted-foreground transition-all duration-300 hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl group`}
                       aria-label={link.label}
                     >
                       <div className="transition-transform duration-200 group-hover:animate-pulse">
@@ -117,14 +117,14 @@ const Footer = () => {
 
             {/* Quick Links with Neo-Brutalism */}
             <div>
-              <div className="glass-card bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 h-full">
-                <h4 className="text-lg font-black mb-6 text-white neon-text-teal">QUICK LINKS</h4>
+              <div className="glass-card bg-card/5 backdrop-blur-xl border border-border/10 rounded-2xl p-6 h-full">
+                <h4 className="text-lg font-black mb-6 text-foreground neon-text-teal">QUICK LINKS</h4>
                 <ul className="space-y-3">
                   {quickLinks.map((link, index) => (
                     <li key={index}>
                       <button
                         onClick={() => scrollToSection(link.href)}
-                        className="text-gray-400 hover:text-white transition-all duration-200 hover:translate-x-2 transform font-bold text-sm tracking-wide hover:neon-glow-orange"
+                        className="text-muted-foreground hover:text-foreground transition-all duration-200 hover:translate-x-2 transform font-bold text-sm tracking-wide hover:neon-glow-orange"
                       >
                         {link.name}
                       </button>
@@ -136,24 +136,24 @@ const Footer = () => {
 
             {/* Contact Info with 3D Effects */}
             <div>
-              <div className="glass-card bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 h-full isometric-card">
-                <h4 className="text-lg font-black mb-6 text-white">GET IN TOUCH</h4>
+              <div className="glass-card bg-card/5 backdrop-blur-xl border border-border/10 rounded-2xl p-6 h-full isometric-card">
+                <h4 className="text-lg font-black mb-6 text-foreground">GET IN TOUCH</h4>
                 <div className="space-y-4">
                   <div className="group">
-                    <p className="text-gray-500 text-sm font-bold tracking-wide">EMAIL</p>
-                    <a 
+                    <p className="text-muted-foreground text-sm font-bold tracking-wide">EMAIL</p>
+                    <a
                       href="mailto:shrashtisinghal@gmail.com"
-                      className="text-white hover:text-teal-400 transition-colors text-sm font-medium hover:neon-glow-teal"
+                      className="text-foreground hover:text-teal-400 transition-colors text-sm font-medium hover:neon-glow-teal"
                     >
                       shrashtisinghal@gmail.com
                     </a>
                   </div>
                   <div className="group">
-                    <p className="text-gray-500 text-sm font-bold tracking-wide">LOCATION</p>
-                    <p className="text-white text-sm font-medium">Delhi, India</p>
+                    <p className="text-muted-foreground text-sm font-bold tracking-wide">LOCATION</p>
+                    <p className="text-foreground text-sm font-medium">Delhi, India</p>
                   </div>
                   <div className="group">
-                    <p className="text-gray-500 text-sm font-bold tracking-wide">PORTFOLIO</p>
+                    <p className="text-muted-foreground text-sm font-bold tracking-wide">PORTFOLIO</p>
                     <p className="text-orange-400 text-sm font-bold">Available Worldwide</p>
                   </div>
                 </div>
@@ -163,13 +163,13 @@ const Footer = () => {
         </div>
 
         {/* Bottom Footer with Neo-Brutalism */}
-        <div className="border-t border-white/10 py-6">
-          <div className="glass-card bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4">
+        <div className="border-t border-border/10 py-6">
+          <div className="glass-card bg-card/5 backdrop-blur-xl border border-border/10 rounded-xl p-4">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="text-gray-400 text-sm mb-4 md:mb-0 font-medium">
-                © {currentYear} <span className="text-white font-bold">Shrashti Singhal</span>. All rights reserved.
+              <div className="text-muted-foreground text-sm mb-4 md:mb-0 font-medium">
+                © {currentYear} <span className="text-foreground font-bold">Shrashti Singhal</span>. All rights reserved.
               </div>
-              <div className="flex items-center text-gray-400 text-sm">
+              <div className="flex items-center text-muted-foreground text-sm">
                 <span className="mr-2">Built with</span>
                 <Heart className="w-4 h-4 mx-1 text-red-500 animate-pulse" />
                 <span className="ml-2">and <span className="text-orange-400 font-bold">AI expertise</span></span>

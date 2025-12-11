@@ -108,14 +108,14 @@ const About = () => {
   ];
 
   return (
-    <section 
-      id="about" 
-      className="py-24 bg-black relative overflow-hidden"
+    <section
+      id="about"
+      className="py-24 bg-background relative overflow-hidden"
       style={{
         background: `
           radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(23, 195, 178, 0.1) 0%, transparent 50%),
           radial-gradient(circle at 20% 80%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
-          linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%)
+          linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--card)) 50%, hsl(var(--background)) 100%)
         `
       }}
     >
@@ -132,9 +132,9 @@ const About = () => {
               animationDuration: `${3 + Math.random() * 2}s`
             }}
           >
-            {index % 3 === 0 ? <Shield className="w-8 h-8" /> : 
-             index % 3 === 1 ? <Cpu className="w-6 h-6" /> : 
-             <Zap className="w-7 h-7" />}
+            {index % 3 === 0 ? <Shield className="w-8 h-8" /> :
+              index % 3 === 1 ? <Cpu className="w-6 h-6" /> :
+                <Zap className="w-7 h-7" />}
           </div>
         ))}
       </div>
@@ -149,34 +149,34 @@ const About = () => {
               </h2>
             </div>
           </div>
-          <p className="text-xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed">
-            Passionate about aligning <span className="text-orange-400 font-bold">next-gen AI architectures</span> with 
+          <p className="text-xl text-muted-foreground font-light max-w-3xl mx-auto leading-relaxed">
+            Passionate about aligning <span className="text-orange-400 font-bold">next-gen AI architectures</span> with
             <span className="text-teal-400 font-bold"> real-world business impact</span>
           </p>
         </div>
 
         {/* Glass Morphism Professional Story */}
         <div className={`mb-16 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="glass-card bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-3xl p-8 sm:p-12 shadow-brutal isometric-card ar-hover">
+          <div className="glass-card bg-gradient-to-br from-card/10 to-card/5 backdrop-blur-2xl border border-border rounded-3xl p-8 sm:p-12 shadow-brutal isometric-card ar-hover">
             <div className="prose prose-lg max-w-none">
-              <p className="text-gray-300 leading-relaxed mb-6 text-lg">
-                Currently leading AI initiatives at <span className="font-black text-teal-400">Culinda Inc.</span>, 
-                where I spearhead the development of advanced ML solutions to proactively identify and mitigate vulnerabilities 
-                in healthcare infrastructure. My expertise spans integrating AI with EDR, threat intelligence platforms, and 
-                regulatory-compliant environments including <span className="font-bold text-orange-400">HIPAA</span> and 
+              <p className="text-muted-foreground leading-relaxed mb-6 text-lg">
+                Currently leading AI initiatives at <span className="font-black text-teal-400">Culinda Inc.</span>,
+                where I spearhead the development of advanced ML solutions to proactively identify and mitigate vulnerabilities
+                in healthcare infrastructure. My expertise spans integrating AI with EDR, threat intelligence platforms, and
+                regulatory-compliant environments including <span className="font-bold text-orange-400">HIPAA</span> and
                 <span className="font-bold text-orange-400"> ISO 27001</span>.
               </p>
-              <p className="text-gray-300 leading-relaxed mb-6 text-lg">
-                I serve as an <span className="font-black text-orange-400">academic advisor</span>, 
-                collaborating with leading U.S. research institutions on AI-driven disease diagnostics using medical imaging. 
+              <p className="text-muted-foreground leading-relaxed mb-6 text-lg">
+                I serve as an <span className="font-black text-orange-400">academic advisor</span>,
+                collaborating with leading U.S. research institutions on AI-driven disease diagnostics using medical imaging.
                 This dual role allows me to bridge cutting-edge research with practical, production-ready solutions.
               </p>
-              <p className="text-gray-300 leading-relaxed text-lg">
-                My journey in AI spans from founding multiple successful startups including 
-                <span className="font-bold text-teal-400"> DermaAI</span>, 
-                <span className="font-bold text-teal-400"> ChestAI</span>, and 
-                <span className="font-bold text-orange-400"> NeedyData</span> (acquired by a Canadian firm) 
-                to working with Fortune 500 companies like <span className="font-bold text-orange-400">Delta Airlines</span> and 
+              <p className="text-muted-foreground leading-relaxed text-lg">
+                My journey in AI spans from founding multiple successful startups including
+                <span className="font-bold text-teal-400"> DermaAI</span>,
+                <span className="font-bold text-teal-400"> ChestAI</span>, and
+                <span className="font-bold text-orange-400"> NeedyData</span> (acquired by a Canadian firm)
+                to working with Fortune 500 companies like <span className="font-bold text-orange-400">Delta Airlines</span> and
                 <span className="font-bold text-orange-400"> Intel Deutschland</span>.
               </p>
             </div>
@@ -186,20 +186,20 @@ const About = () => {
         {/* 3D Isometric Key Highlights */}
         <div className={`mb-16 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-black text-white mb-4">KEY STRENGTHS</h3>
+            <h3 className="text-3xl font-black text-foreground mb-4">KEY STRENGTHS</h3>
             <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-teal-500 mx-auto rounded-full"></div>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {highlights.map((highlight, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="group relative"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Neo-Brutalism Card */}
-                <div className="glass-card bg-gradient-to-br from-black/60 to-gray-900/60 backdrop-blur-xl border-2 border-white/20 hover:border-white/40 rounded-2xl p-6 shadow-brutal hover:shadow-brutal-hover transition-all duration-300 hover:-translate-y-2 hover:-rotate-1 isometric-card ar-hover group">
-                  
+                <div className="glass-card bg-gradient-to-br from-card/60 to-background/60 backdrop-blur-xl border-2 border-border hover:border-border/80 rounded-2xl p-6 shadow-brutal hover:shadow-brutal-hover transition-all duration-300 hover:-translate-y-2 hover:-rotate-1 isometric-card ar-hover group">
+
                   {/* 3D Icon Container */}
                   <div className="mb-6 flex justify-center">
                     <div className={`p-4 bg-gradient-to-br ${highlight.color} rounded-2xl shadow-lg transform rotate-3 group-hover:-rotate-3 transition-transform duration-300 isometric-social-btn`}>
@@ -208,11 +208,11 @@ const About = () => {
                       </div>
                     </div>
                   </div>
-                  
-                  <h4 className={`font-black text-white mb-4 text-center tracking-wide ${highlight.neon}`}>
+
+                  <h4 className={`font-black text-foreground mb-4 text-center tracking-wide ${highlight.neon}`}>
                     {highlight.title}
                   </h4>
-                  <p className="text-sm text-gray-300 leading-relaxed text-center">
+                  <p className="text-sm text-muted-foreground leading-relaxed text-center">
                     {highlight.description}
                   </p>
 
@@ -228,8 +228,8 @@ const About = () => {
         <div className={`grid lg:grid-cols-2 gap-8 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {educationAndAchievements.map((section, sectionIndex) => (
             <div key={sectionIndex} className="group">
-              <div className="glass-card bg-gradient-to-br from-white/5 to-white/2 backdrop-blur-2xl border border-white/20 hover:border-white/40 rounded-3xl p-8 shadow-brutal hover:shadow-brutal-hover transition-all duration-500 hover:-translate-y-1 isometric-card ar-hover">
-                
+              <div className="glass-card bg-gradient-to-br from-card/5 to-card/2 backdrop-blur-2xl border border-border hover:border-border/80 rounded-3xl p-8 shadow-brutal hover:shadow-brutal-hover transition-all duration-500 hover:-translate-y-1 isometric-card ar-hover">
+
                 {/* Neo-Brutalism Header */}
                 <div className="flex items-center mb-8">
                   <div className={`p-3 bg-gradient-to-br ${section.color} rounded-xl mr-4 transform rotate-2 group-hover:-rotate-2 transition-transform duration-300`}>
@@ -238,14 +238,14 @@ const About = () => {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-white tracking-wide">{section.type}</h3>
+                    <h3 className="text-xl font-black text-foreground tracking-wide">{section.type}</h3>
                     <div className={`w-16 h-1 bg-gradient-to-r ${section.color} rounded-full mt-2`}></div>
                   </div>
                 </div>
-                
+
                 <div className="space-y-6">
                   {section.items.map((item, itemIndex) => (
-                    <div key={itemIndex} className="relative border-l-2 border-gray-700 hover:border-white/40 pl-6 transition-colors duration-300">
+                    <div key={itemIndex} className="relative border-l-2 border-border hover:border-border/80 pl-6 transition-colors duration-300">
                       <div className={`absolute -left-2 top-2 w-4 h-4 bg-gradient-to-br ${section.color} rounded-full animate-pulse-slow`}></div>
                       <div>
                         {item.link ? (
@@ -255,12 +255,12 @@ const About = () => {
                             rel="noopener noreferrer"
                             className="group block"
                           >
-                            <h4 className="font-bold text-white mb-2 hover:text-orange-400 transition-all duration-200 group-hover:neon-glow-orange cursor-pointer">
+                            <h4 className="font-bold text-foreground mb-2 hover:text-orange-400 transition-all duration-200 group-hover:neon-glow-orange cursor-pointer">
                               {item.title} 🔗
                             </h4>
                           </a>
                         ) : (
-                          <h4 className="font-bold text-white mb-2 hover:neon-glow-teal transition-all duration-200">
+                          <h4 className="font-bold text-foreground mb-2 hover:neon-glow-teal transition-all duration-200">
                             {item.title}
                           </h4>
                         )}
@@ -271,7 +271,7 @@ const About = () => {
                           </Badge>
                         )}
                         {item.description && (
-                          <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                          <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
                         )}
                       </div>
                     </div>

@@ -144,14 +144,14 @@ const Skills = () => {
   ];
 
   return (
-    <section 
-      id="skills" 
-      className="py-24 bg-black relative overflow-hidden"
+    <section
+      id="skills"
+      className="py-24 bg-background relative overflow-hidden"
       style={{
         background: `
           radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(23, 195, 178, 0.1) 0%, transparent 50%),
           radial-gradient(circle at 20% 80%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
-          linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%)
+          linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--card)) 50%, hsl(var(--background)) 100%)
         `
       }}
     >
@@ -168,9 +168,9 @@ const Skills = () => {
               animationDuration: `${3 + Math.random() * 2}s`
             }}
           >
-            {index % 3 === 0 ? <Brain className="w-8 h-8" /> : 
-             index % 3 === 1 ? <Cpu className="w-6 h-6" /> : 
-             <Zap className="w-7 h-7" />}
+            {index % 3 === 0 ? <Brain className="w-8 h-8" /> :
+              index % 3 === 1 ? <Cpu className="w-6 h-6" /> :
+                <Zap className="w-7 h-7" />}
           </div>
         ))}
       </div>
@@ -185,8 +185,8 @@ const Skills = () => {
               </h2>
             </div>
           </div>
-          <p className="text-xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed">
-            Comprehensive expertise across the <span className="text-orange-400 font-bold">AI/ML technology stack</span> with 
+          <p className="text-xl text-muted-foreground font-light max-w-3xl mx-auto leading-relaxed">
+            Comprehensive expertise across the <span className="text-orange-400 font-bold">AI/ML technology stack</span> with
             deep specialization in <span className="text-teal-400 font-bold">cybersecurity applications</span>
           </p>
         </div>
@@ -194,14 +194,14 @@ const Skills = () => {
         {/* Skills Grid with Dark Theme */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="group relative"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Glass Morphism Card */}
-              <div className={`glass-card bg-gradient-to-br from-black/60 to-gray-900/60 backdrop-blur-xl border ${category.borderColor} hover:border-white/40 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:-rotate-1 isometric-card ar-hover group ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                
+              <div className={`glass-card bg-gradient-to-br from-card/60 to-background/60 backdrop-blur-xl border ${category.borderColor} hover:border-border/40 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:-rotate-1 isometric-card ar-hover group ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+
                 {/* 3D Icon Container */}
                 <div className="mb-6 flex justify-center">
                   <div className={`p-4 bg-gradient-to-br ${category.color} rounded-2xl shadow-md transform rotate-3 group-hover:-rotate-3 transition-transform duration-300 isometric-social-btn`}>
@@ -210,16 +210,16 @@ const Skills = () => {
                     </div>
                   </div>
                 </div>
-                
-                <h3 className="font-black text-white mb-6 text-center tracking-wide text-lg">
+
+                <h3 className="font-black text-foreground mb-6 text-center tracking-wide text-lg">
                   {category.title}
                 </h3>
-                
+
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, skillIndex) => (
-                    <Badge 
+                    <Badge
                       key={skillIndex}
-                      className="neo-brutal-btn-small bg-gray-800/80 hover:bg-white/10 text-gray-300 hover:text-white text-xs py-2 px-3 border border-gray-700/50 hover:border-white/20 transition-all duration-200 hover:scale-105"
+                      className="neo-brutal-btn-small bg-muted/80 hover:bg-card/10 text-muted-foreground hover:text-foreground text-xs py-2 px-3 border border-border hover:border-border/20 transition-all duration-200 hover:scale-105"
                     >
                       {skill}
                     </Badge>
@@ -235,14 +235,14 @@ const Skills = () => {
 
         {/* Experience Summary with Glass Morphism */}
         <div className={`mt-16 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="glass-card bg-gradient-to-r from-orange-500/20 via-black/60 to-teal-500/20 backdrop-blur-2xl border border-white/30 rounded-3xl p-8 shadow-lg">
+          <div className="glass-card bg-gradient-to-r from-orange-500/20 via-background/60 to-teal-500/20 backdrop-blur-2xl border border-border/30 rounded-3xl p-8 shadow-lg">
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div className="group">
                 <div className="isometric-card hover:scale-110 transition-all duration-300">
                   <div className="text-5xl font-black bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent mb-2">
                     12+
                   </div>
-                  <div className="text-gray-300 font-bold tracking-wide">YEARS OF EXPERIENCE</div>
+                  <div className="text-muted-foreground font-bold tracking-wide">YEARS OF EXPERIENCE</div>
                 </div>
               </div>
               <div className="group">
@@ -250,7 +250,7 @@ const Skills = () => {
                   <div className="text-5xl font-black bg-gradient-to-r from-teal-400 to-teal-500 bg-clip-text text-transparent mb-2">
                     50+
                   </div>
-                  <div className="text-gray-300 font-bold tracking-wide">TECHNOLOGIES MASTERED</div>
+                  <div className="text-muted-foreground font-bold tracking-wide">TECHNOLOGIES MASTERED</div>
                 </div>
               </div>
               <div className="group">
@@ -258,7 +258,7 @@ const Skills = () => {
                   <div className="text-5xl font-black bg-gradient-to-r from-orange-400 to-teal-400 bg-clip-text text-transparent animate-gradient-x mb-2">
                     15
                   </div>
-                  <div className="text-gray-300 font-bold tracking-wide">MAJOR PROJECTS DELIVERED</div>
+                  <div className="text-muted-foreground font-bold tracking-wide">MAJOR PROJECTS DELIVERED</div>
                 </div>
               </div>
             </div>

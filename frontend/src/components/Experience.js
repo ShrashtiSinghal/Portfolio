@@ -115,14 +115,14 @@ const Experience = () => {
   ];
 
   return (
-    <section 
-      id="experience" 
-      className="py-24 bg-black relative overflow-hidden"
+    <section
+      id="experience"
+      className="py-24 bg-background relative overflow-hidden"
       style={{
         background: `
           radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
           radial-gradient(circle at 20% 80%, rgba(23, 195, 178, 0.1) 0%, transparent 50%),
-          linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%)
+          linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--card)) 50%, hsl(var(--background)) 100%)
         `
       }}
     >
@@ -139,9 +139,9 @@ const Experience = () => {
               animationDuration: `${3 + Math.random() * 2}s`
             }}
           >
-            {index % 3 === 0 ? <Building className="w-8 h-8" /> : 
-             index % 3 === 1 ? <Cpu className="w-6 h-6" /> : 
-             <Award className="w-7 h-7" />}
+            {index % 3 === 0 ? <Building className="w-8 h-8" /> :
+              index % 3 === 1 ? <Cpu className="w-6 h-6" /> :
+                <Award className="w-7 h-7" />}
           </div>
         ))}
       </div>
@@ -156,9 +156,9 @@ const Experience = () => {
               </h2>
             </div>
           </div>
-          <p className="text-xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed">
-            A journey of <span className="text-orange-400 font-bold">innovation</span>, 
-            <span className="text-teal-400 font-bold"> leadership</span>, and 
+          <p className="text-xl text-muted-foreground font-light max-w-3xl mx-auto leading-relaxed">
+            A journey of <span className="text-orange-400 font-bold">innovation</span>,
+            <span className="text-teal-400 font-bold"> leadership</span>, and
             <span className="text-orange-400 font-bold"> transformative AI solutions</span> across diverse industries
           </p>
         </div>
@@ -169,23 +169,22 @@ const Experience = () => {
           <div className="hidden md:block absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-teal-600 via-orange-400 to-teal-600"></div>
 
           {experiences.map((exp, index) => (
-            <div 
+            <div
               key={index}
-              className={`relative mb-12 transition-all duration-1000 ${
-                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-              }`}
+              className={`relative mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+                }`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               {/* Timeline Dot */}
-              <div className="hidden md:block absolute left-6 top-8 w-4 h-4 bg-black border-4 border-teal-600 rounded-full shadow-lg z-10"></div>
-              
+              <div className="hidden md:block absolute left-6 top-8 w-4 h-4 bg-background border-4 border-teal-600 rounded-full shadow-lg z-10"></div>
+
               <div className="md:ml-20">
                 {/* Glass Morphism Experience Card */}
-                <div className="glass-card bg-gradient-to-br from-black/60 to-gray-900/60 backdrop-blur-xl border border-white/20 hover:border-white/40 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 isometric-card ar-hover group">
+                <div className="glass-card bg-gradient-to-br from-card/60 to-background/60 backdrop-blur-xl border border-border hover:border-border/80 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 isometric-card ar-hover group">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
                     <div className="flex-1">
                       <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <h3 className="text-xl font-black text-white">{exp.title}</h3>
+                        <h3 className="text-xl font-black text-foreground">{exp.title}</h3>
                         {exp.current && (
                           <Badge className="neo-brutal-btn-small bg-teal-500 text-black text-xs font-bold">
                             CURRENT
@@ -195,10 +194,10 @@ const Experience = () => {
                       {exp.subtitle && (
                         <p className="text-orange-400 font-bold mb-1">{exp.subtitle}</p>
                       )}
-                      <div className="flex flex-wrap items-center gap-4 text-gray-400 text-sm">
+                      <div className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
                         <div className="flex items-center gap-1">
                           <Building className="w-4 h-4 text-teal-400" />
-                          <span className="font-medium text-gray-300">{exp.company}</span>
+                          <span className="font-medium text-muted-foreground">{exp.company}</span>
                         </div>
                         <div className="flex items-center gap-1">
                           <MapPin className="w-4 h-4 text-orange-400" />
@@ -210,20 +209,20 @@ const Experience = () => {
                         </div>
                       </div>
                     </div>
-                    <Badge className="neo-brutal-btn-small bg-gray-800/80 text-gray-300 border border-gray-700/50 mt-2 lg:mt-0 text-xs">
+                    <Badge className="neo-brutal-btn-small bg-muted/80 text-muted-foreground border border-border mt-2 lg:mt-0 text-xs">
                       {exp.type}
                     </Badge>
                   </div>
 
                   {/* Key Highlights */}
                   <div className="mb-6">
-                    <h4 className="text-sm font-black text-white mb-3 flex items-center">
+                    <h4 className="text-sm font-black text-foreground mb-3 flex items-center">
                       <Award className="w-4 h-4 mr-2 text-orange-400" />
                       KEY ACHIEVEMENTS
                     </h4>
                     <ul className="space-y-2">
                       {exp.highlights.map((highlight, hIndex) => (
-                        <li key={hIndex} className="text-gray-300 text-sm flex items-start">
+                        <li key={hIndex} className="text-muted-foreground text-sm flex items-start">
                           <span className="w-2 h-2 bg-teal-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           <span>{highlight}</span>
                         </li>
@@ -233,12 +232,12 @@ const Experience = () => {
 
                   {/* Technologies */}
                   <div>
-                    <h4 className="text-sm font-black text-white mb-3">TECHNOLOGIES & TOOLS</h4>
+                    <h4 className="text-sm font-black text-foreground mb-3">TECHNOLOGIES & TOOLS</h4>
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech, tIndex) => (
-                        <Badge 
+                        <Badge
                           key={tIndex}
-                          className="neo-brutal-btn-small bg-gray-800/80 hover:bg-orange-500/20 text-gray-300 hover:text-orange-400 text-xs py-1 px-3 border border-gray-700/50 hover:border-orange-500/30 transition-all duration-200"
+                          className="neo-brutal-btn-small bg-muted/80 hover:bg-orange-500/20 text-muted-foreground hover:text-orange-400 text-xs py-1 px-3 border border-border hover:border-orange-500/30 transition-all duration-200"
                         >
                           {tech}
                         </Badge>
