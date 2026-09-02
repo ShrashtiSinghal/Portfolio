@@ -11,7 +11,7 @@ export const mockProjects = [
     longDescription: "VeloDesk is the ITSM product in the Velozent Agentic Enterprise Suite. A multi-agent triage pipeline (CrewAI classifier plus LangGraph router) on a Qwen 2.5-7B backbone coordinates dedicated agents for ticket classification, SLA monitoring, knowledge retrieval, escalation routing and client communication. A Tier-1 knowledge assistant retrieves step-by-step resolution guidance via RAG over internal runbooks and historical tickets, predictive SLA-breach alerting runs on time-series anomaly detection, and agent memory persists ticket context across sessions. REST integrations cover Jira, Slack, Microsoft Teams and PagerDuty.",
     technologies: ["LangGraph", "CrewAI", "Qwen 2.5-7B", "GPT-4o", "FastAPI", "WebSockets", "Weaviate", "PostgreSQL", "Azure"],
     impact: ["94% ticket routing accuracy", "52% reduction in first-response time", "60% of routine client communications self-served"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop&auto=format",
+    image: "/projects/velodesk.jpg",
     featured: true
   },
   {
@@ -26,7 +26,7 @@ export const mockProjects = [
     longDescription: "VeloContract runs a four-agent pipeline in LangGraph with human-in-the-loop checkpoints: Extraction, Risk Scoring, Compliance and Obligation Tracking. The Extraction Agent uses a local Mistral-7B parser over LlamaIndex and Weaviate RAG to pull clauses, obligations, dates, counterparties and risk indicators from unstructured PDFs without sending data to external APIs. The Compliance Agent benchmarks every clause against HIPAA, ISO 27001 and GDPR and flags non-compliant language with remediation recommendations, while executive dashboards surface real-time risk scoring, supplier concentration, obligation burn-down and audit-ready clause change history.",
     technologies: ["LangGraph", "LlamaIndex", "Weaviate", "Mistral-7B", "GPT-4o", "FastAPI", "PostgreSQL"],
     impact: ["70% reduction in legal review time", "65% reduction in compliance incidents", "On-premise extraction with no external API calls"],
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&h=300&fit=crop&auto=format",
+    image: "/projects/velocontract.jpg",
     featured: true
   },
   {
@@ -41,7 +41,7 @@ export const mockProjects = [
     longDescription: "VeloHr covers recruitment intelligence, onboarding orchestration, performance management, payroll compliance and employee lifecycle automation. A fine-tuned recruitment agent matches candidate profiles to job descriptions with contextual scoring, an onboarding orchestration agent autonomously sequences task assignment, document collection, system provisioning and training scheduling across departments, and a RAG-powered policy assistant lets employees query policies and leave entitlements in natural language. Performance agents aggregate 360-degree feedback, generate structured review summaries and flag flight-risk signals.",
     technologies: ["LangGraph", "CrewAI", "Fine-tuned LLaMA-3", "LlamaIndex", "FAISS", "RAG", "FastAPI", "PostgreSQL"],
     impact: ["100% agreement with the human shortlisting panel", "Autonomous cross-department onboarding", "Natural-language HR policy self-service"],
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=300&fit=crop&auto=format",
+    image: "/projects/velohr.jpg",
     featured: true
   },
   {
@@ -56,8 +56,8 @@ export const mockProjects = [
     longDescription: "VeloInventory is the agentic asset lifecycle platform for hospital equipment, covering provisioning, maintenance scheduling, utilisation tracking and end-of-life management. An Asset Intelligence Agent monitors device health signals, maintenance logs and utilisation telemetry while anomaly detection agents flag degrading assets before failure. A predictive maintenance engine combining time-series ML with transformer sequence modelling forecasts service requirements and auto-generates work orders, and compliance agents keep certifications, calibration records and regulatory documentation audit-ready. The integration layer connects hospital CMDB, procurement systems and vendor portals.",
     technologies: ["LangGraph", "OpenAI Agents SDK", "Python", "FastAPI", "PostgreSQL", "Azure", "Time-series ML"],
     impact: ["Predictive maintenance with auto-generated work orders", "Failure prediction from device health telemetry", "Audit-ready certification and calibration records"],
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=300&fit=crop&auto=format",
-    featured: false
+    image: "/projects/veloinventory.jpg",
+    featured: true
   },
   {
     id: 5,
@@ -71,7 +71,7 @@ export const mockProjects = [
     longDescription: "VeloCapture finds every relevant outbound lead, government bid and corporate RFP for the products a tenant sells, scores each one, drafts the response in the buyer's own format and reaches buyers by email and voice. A Next.js front end sits over a FastAPI and Celery pipeline, with DuckDB for large-scale provider ETL, Splink for entity resolution and Playwright for procurement-portal automation.",
     technologies: ["Next.js", "FastAPI", "Celery", "PostgreSQL", "pgvector", "Redis", "DuckDB", "Splink", "Playwright"],
     impact: ["Leads, government bids and corporate RFPs in one pipeline", "Entity resolution across large provider datasets", "Automated draft responses in the buyer's own format"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop&auto=format",
+    image: "/projects/velocapture.jpg",
     featured: false
   },
   {
@@ -86,7 +86,7 @@ export const mockProjects = [
     longDescription: "VeloRevenue closes the seam between finance platforms that stop at the business office and revenue-cycle vendors that never touch the ledger. An 835 remittance posts cash, contractual allowance and denial reserve against patient A/R in the same transaction as the claim state update. Built for 25 to 300 bed hospitals and clinic groups on Next.js 16 and PostgreSQL 17, with an AI assistant across finance and revenue cycle.",
     technologies: ["Next.js 16", "React 19", "TypeScript", "PostgreSQL 17", "pgvector", "Valkey", "Zod", "Docker"],
     impact: ["Claim-to-ledger posting in a single transaction", "Finance, RCM, supply chain and payroll unified", "Built for 25-300 bed hospitals and clinic groups"],
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&h=300&fit=crop&auto=format",
+    image: "/projects/velorevenue.jpg",
     featured: false
   },
   {
@@ -101,7 +101,7 @@ export const mockProjects = [
     longDescription: "VeloCares is the healthcare CRM in the Velo family: a patient relationship and engagement platform built so that every patient is known, every touchpoint connected, and every action consent-safe and provable. Next.js 16 serves both the interface and the API surface over PostgreSQL 16, with subdomain multi-tenancy and an AI gateway that degrades gracefully when no model key is configured.",
     technologies: ["Next.js 16", "TypeScript", "PostgreSQL", "jose JWT", "Anthropic Claude", "Tailwind"],
     impact: ["Consent-safe, provable patient engagement", "Subdomain multi-tenancy per health system", "Graceful AI fallbacks when no model key is set"],
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&h=300&fit=crop&auto=format",
+    image: "/projects/velocares.jpg",
     featured: false
   },
   {
@@ -146,7 +146,7 @@ export const mockProjects = [
     longDescription: "VeloLibrary is the AI-native, institution-grade medical learning platform that carries a single learner record from medical school through residency into lifetime CME. Built on Next.js 16 with Drizzle ORM over PostgreSQL 16 and row-level security, BullMQ job queues, and a weekly item-response-theory calibration batch for psychometrically sound assessment.",
     technologies: ["Next.js 16", "TypeScript", "PostgreSQL", "pgvector", "Drizzle ORM", "BullMQ", "Redis", "Claude"],
     impact: ["One learner record across med school, residency and CME", "Row-level security per institution", "IRT-calibrated assessment"],
-    image: "https://images.unsplash.com/photo-1711980815489-5fdd9e24adb0?w=500&h=300&fit=crop&auto=format",
+    image: "/projects/velolibrary.jpg",
     featured: false
   },
   {
@@ -161,26 +161,11 @@ export const mockProjects = [
     longDescription: "VeloFacility is the facility management product in the Velo family, covering work orders, preventive maintenance schedules and space and plant management across a health system's estate. Built on Next.js with Supabase-backed services and a background worker, it shares the Velo design token contract and enforces tenant-bound sessions in middleware.",
     technologies: ["Next.js", "TypeScript", "Supabase", "Tailwind", "Background Workers"],
     impact: ["Work orders and preventive maintenance in one system", "Tenant-bound sessions enforced in middleware", "Shares the Velo design token contract"],
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=500&h=300&fit=crop&auto=format",
+    image: "/projects/velofacility.jpg",
     featured: false
   },
   {
     id: 12,
-    title: "VeloDefense / DarkEyeScan.com - Converged Security Intelligence",
-    category: "Velo Platform",
-    year: "2025-2026",
-    status: "Active",
-    company: "Prime Healthcare",
-    role: "AI Engineering Manager",
-    description: "Converged agentic security platform (TIP + VRM + ASM + SOAR + GRC) that replaced five separate tools for hospital security teams.",
-    longDescription: "An enterprise converged security platform unifying full-spectrum OSINT ingestion (surface, deep and dark web, telecom feeds, social media, ISAC feeds and breach databases) with AI-powered correlation, team-specific intelligence distribution, end-to-end GRC and a shared action audit layer. A multi-agent correlation engine handles entity extraction, MITRE ATT&CK TTP mapping, CVE/CVSS correlation and cross-source signal fusion, routing intelligence to six security functions. The SOAR layer executes agentic playbooks on high-confidence threats, triggering containment, raising tickets and generating executive briefs.",
-    technologies: ["LangGraph", "OpenAI Agents SDK", "Qwen 2.5-72B", "DeepSeek-R1", "Mistral", "GPT-4o", "PostgreSQL", "MITRE ATT&CK", "Splunk"],
-    impact: ["89% MTTD reduction across 15+ hospital security teams", "55% LLM cost reduction via open-source model routing", "Five separate security tools replaced by one platform"],
-    image: "https://customer-assets.emergentagent.com/job_187402a5-927c-41c5-9be1-d079b56e1d1d/artifacts/xv3yik0i_darkeye_mascot.png",
-    featured: true
-  },
-  {
-    id: 13,
     title: "Night Hawk – Agentic Data Intelligence Platform",
     category: "AI Engineering",
     year: "2025",
@@ -195,7 +180,7 @@ export const mockProjects = [
     featured: false
   },
   {
-    id: 14,
+    id: 13,
     title: "AI Security Copilot",
     category: "Cybersecurity",
     year: "2024",
@@ -210,7 +195,7 @@ export const mockProjects = [
     featured: false
   },
   {
-    id: 15,
+    id: 14,
     title: "Dark Watch – AI Remediation Assistant",
     category: "AI Engineering",
     year: "2024", 
@@ -225,7 +210,7 @@ export const mockProjects = [
     featured: false
   },
   {
-    id: 16,
+    id: 15,
     title: "ThreatPrism.com – Threat Intelligence Hub",
     category: "Cybersecurity",
     year: "2024",
@@ -240,7 +225,7 @@ export const mockProjects = [
     featured: false
   },
   {
-    id: 17,
+    id: 16,
     title: "LLM Fine-Tuning & Synthetic Data Generation",
     category: "Machine Learning",
     year: "2024",
@@ -255,7 +240,7 @@ export const mockProjects = [
     featured: false
   },
   {
-    id: 18,
+    id: 17,
     title: "Cybersecurity Risk Quantification",
     category: "Risk Analysis", 
     year: "2023",
@@ -270,7 +255,7 @@ export const mockProjects = [
     featured: false
   },
   {
-    id: 19,
+    id: 18,
     title: "Dynamic Querying & Visualization System",
     category: "NLP",
     year: "2022-2023",
@@ -285,7 +270,7 @@ export const mockProjects = [
     featured: false
   },
   {
-    id: 20,
+    id: 19,
     title: "Auto Recruitment System",
     category: "NLP",
     year: "2022-2023",
@@ -300,7 +285,7 @@ export const mockProjects = [
     featured: false
   },
   {
-    id: 21,
+    id: 20,
     title: "Healthcare Threat Detection System",
     category: "Cybersecurity",
     year: "2021-2022",
@@ -315,7 +300,7 @@ export const mockProjects = [
     featured: false
   },
   {
-    id: 22,
+    id: 21,
     title: "ChestAI - Chest Disease Detection",
     category: "Healthcare AI",
     year: "2021-2022", 
@@ -330,7 +315,7 @@ export const mockProjects = [
     featured: false
   },
   {
-    id: 23,
+    id: 22,
     title: "DermaAI - Skin Disease Detection",
     category: "Healthcare AI",
     year: "2021-2022",
@@ -345,7 +330,7 @@ export const mockProjects = [
     featured: false
   },
   {
-    id: 24,
+    id: 23,
     title: "NeedyData - Data Cleaning Platform",
     category: "Data Engineering",
     year: "2018-2021",
@@ -360,7 +345,7 @@ export const mockProjects = [
     featured: false
   },
   {
-    id: 25,
+    id: 24,
     title: "Flight Delay Optimization",
     category: "Operations Research",
     year: "2019-2020",
@@ -375,7 +360,7 @@ export const mockProjects = [
     featured: false
   },
   {
-    id: 26,
+    id: 25,
     title: "Telecommunication Logs Classification",
     category: "Machine Learning",
     year: "2017",
@@ -390,7 +375,7 @@ export const mockProjects = [
     featured: false
   },
   {
-    id: 27,
+    id: 26,
     title: "MagixDB - Natural Language Database Querying",
     category: "NLP",
     year: "2020-2024",
