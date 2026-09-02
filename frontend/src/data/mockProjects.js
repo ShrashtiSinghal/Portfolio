@@ -116,7 +116,7 @@ export const mockProjects = [
     longDescription: "VeloComms is the HIPAA-compliant communication platform in the Velo suite, delivering secure messaging, channels, role-based access control, audit trails and single sign-on for clinical teams. A Next.js front end sits over a FastAPI backend, containerised with continuous deployment to its own infrastructure.",
     technologies: ["Next.js", "TypeScript", "FastAPI", "Python 3.12", "Pydantic v2", "Docker", "Tailwind"],
     impact: ["HIPAA-aligned secure clinical messaging", "Channel-level RBAC with full audit trail", "Starts cleanly with optional integrations unset"],
-    image: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?w=500&h=300&fit=crop&auto=format",
+    image: "/projects/velocomms.jpg",
     featured: false
   },
   {
