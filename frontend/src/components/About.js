@@ -39,29 +39,29 @@ const About = () => {
   const highlights = [
     {
       icon: <Cpu className="w-8 h-8" />,
-      title: "AI INNOVATION LEADER",
-      description: "Pioneering secure, scalable AI/ML systems with advanced LLM-based threat detection and RAG pipelines",
+      title: "AGENTIC AI ARCHITECT",
+      description: "10+ production agentic AI systems shipped across ITSM, CLM, HRMS, asset management and security intelligence",
       color: "from-orange-500 to-orange-400",
       neon: ""
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: "TEAM BUILDER",
-      description: "Building and mentoring high-performing data science teams, driving innovation at scale",
+      title: "DELIVERY LEADERSHIP",
+      description: "Guiding cross-functional AI, ML, data-science and full-stack teams on modular, secure and reusable implementation",
       color: "from-teal-500 to-teal-400",
       neon: ""
     },
     {
       icon: <Target className="w-8 h-8" />,
-      title: "BUSINESS IMPACT",
-      description: "Translating complex AI technologies into actionable insights for C-suite stakeholders",
+      title: "STRATEGIC PARTNERSHIPS",
+      description: "$235K+ secured across Anthropic, Microsoft, OpenAI and Google Cloud, expanding AI capability and client credibility",
       color: "from-orange-500 to-orange-400",
       neon: ""
     },
     {
       icon: <BookOpen className="w-8 h-8" />,
-      title: "THOUGHT LEADER",
-      description: "Author and contributor to leading publications on AI, ML, and data science best practices",
+      title: "AI GOVERNANCE",
+      description: "Observability, safety and evaluation across the AI lifecycle, aligned to NIST AI RMF and the EU AI Act",
       color: "from-teal-500 to-teal-400",
       neon: ""
     }
@@ -160,24 +160,28 @@ const About = () => {
           <div className="glass-card bg-gradient-to-br from-card/10 to-card/5 backdrop-blur-2xl border border-border rounded-3xl p-8 sm:p-12 shadow-brutal isometric-card ar-hover">
             <div className="prose prose-lg max-w-none">
               <p className="text-muted-foreground leading-relaxed mb-6 text-lg">
-                Currently leading AI initiatives at <span className="font-black text-teal-400">Culinda Inc.</span>,
-                where I spearhead the development of advanced ML solutions to proactively identify and mitigate vulnerabilities
-                in healthcare infrastructure. My expertise spans integrating AI with EDR, threat intelligence platforms, and
-                regulatory-compliant environments including <span className="font-bold text-orange-400">HIPAA</span> and
-                <span className="font-bold text-orange-400"> ISO 27001</span>.
+                I'm an <span className="font-black text-orange-400">AI/ML Architect</span> with 12+ years in AI/ML, anchoring the
+                end-to-end technical architecture, build and deployment of enterprise GenAI and agentic AI systems — from solution
+                blueprint through production-grade delivery. At <span className="font-black text-teal-400">Culinda Inc.</span> I lead
+                AI as Head of AI and AI Engineering Manager, owning solution integrity across delivery in regulated environments
+                including <span className="font-bold text-orange-400">HIPAA</span>,
+                <span className="font-bold text-orange-400"> ISO 27001</span> and GDPR.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6 text-lg">
-                I serve as an <span className="font-black text-orange-400">academic advisor</span>,
-                collaborating with leading U.S. research institutions on AI-driven disease diagnostics using medical imaging.
-                This dual role allows me to bridge cutting-edge research with practical, production-ready solutions.
+                I've shipped <span className="font-black text-orange-400">10+ production agentic AI systems</span> across regulated
+                enterprise domains — ITSM, contract lifecycle management, asset management, HRMS and converged security intelligence —
+                with deep work in multi-agent orchestration (<span className="font-bold text-teal-400">LangGraph, CrewAI, AutoGen</span>),
+                LLM fine-tuning, and MLOps/LLMOps on Databricks, GCP Vertex AI and Azure.
               </p>
               <p className="text-muted-foreground leading-relaxed text-lg">
-                My journey in AI spans from founding multiple successful startups including
+                I embed observability, safety and compliance across the AI lifecycle, aligning to
+                <span className="font-bold text-teal-400"> NIST AI RMF</span> and the
+                <span className="font-bold text-teal-400"> EU AI Act</span>, and present AI strategy to C-suite and board stakeholders.
+                Along the way I've secured <span className="font-black text-orange-400">$235K+</span> in strategic AI partnerships and
+                founded <span className="font-bold text-orange-400">NeedyData</span> (acquired 2021),
                 <span className="font-bold text-teal-400"> DermaAI</span>,
-                <span className="font-bold text-teal-400"> ChestAI</span>, and
-                <span className="font-bold text-orange-400"> NeedyData</span> (acquired by a Canadian firm)
-                to working with Fortune 500 companies like <span className="font-bold text-orange-400">Delta Airlines</span> and
-                <span className="font-bold text-orange-400"> Intel Deutschland</span>.
+                <span className="font-bold text-teal-400"> Recroid</span> and
+                <span className="font-bold text-teal-400"> MagixDB</span>.
               </p>
             </div>
           </div>

@@ -39,106 +39,127 @@ const Skills = () => {
   const skillCategories = [
     {
       icon: <Brain className="w-8 h-8" />,
-      title: "MACHINE LEARNING & AI",
+      title: "AGENTIC AI & LLMS",
       color: "from-orange-500 to-orange-400",
       borderColor: "border-orange-500/30",
       skills: [
-        "LLMs (GPT-4o, Falcon, LLAMA 2)",
-        "RAG (LangChain, Haystack)",
-        "Agentic Frameworks",
-        "Embedding Models",
-        "Fine-tuning",
-        "Neural Networks",
-        "Deep Learning",
-        "Data Mining",
-        "Computer Vision"
-      ]
-    },
-    {
-      icon: <Shield className="w-8 h-8" />,
-      title: "SECURITY & COMPLIANCE",
-      color: "from-teal-500 to-teal-400",
-      borderColor: "border-teal-500/30",
-      skills: [
-        "CVE Scanning",
-        "IDS Rule Management",
-        "RAG for ThreatOps",
-        "EDR/TVM Integration",
-        "SIEM Tools (Splunk, SentinelOne)",
-        "Threat Intelligence",
-        "CVSS",
-        "ISO 27001",
-        "HIPAA Compliance"
+        "LangGraph",
+        "OpenAI Agents SDK",
+        "CrewAI",
+        "AutoGen",
+        "GPT-4o / 4.1",
+        "Claude (Anthropic partner)",
+        "Qwen 2.5 / QwQ-32B",
+        "DeepSeek-R1",
+        "Mistral / Mixtral",
+        "LLaMA 2 & 3",
+        "RAG (LangChain, LlamaIndex)",
+        "Function calling",
+        "Q-LoRA / DoRA / PEFT",
+        "vLLM / Ollama",
+        "MCP server connectors"
       ]
     },
     {
       icon: <Cloud className="w-8 h-8" />,
-      title: "CLOUD & DEVOPS",
-      color: "from-orange-500 to-orange-400",
-      borderColor: "border-orange-500/30",
-      skills: [
-        "Azure ML",
-        "MLflow",
-        "Docker",
-        "GCP",
-        "Azure",
-        "AWS",
-        "Hadoop",
-        "Spark",
-        "Databricks",
-        "Kubernetes"
-      ]
-    },
-    {
-      icon: <Code className="w-8 h-8" />,
-      title: "PROGRAMMING & FRAMEWORKS",
+      title: "MLOPS & LLMOPS",
       color: "from-teal-500 to-teal-400",
       borderColor: "border-teal-500/30",
       skills: [
-        "Python",
-        "PySpark",
-        "Java",
-        "FastAPI",
-        "TensorFlow",
-        "PyTorch",
-        "Pandas",
-        "NumPy",
-        "Scikit-Learn",
-        "OpenCV"
+        "Databricks (GPU clusters)",
+        "Delta Lake feature stores",
+        "MLflow",
+        "Unity Catalog",
+        "Apache Airflow",
+        "GCP Vertex AI",
+        "Azure ML",
+        "GCP Dataflow",
+        "Docker",
+        "CI/CD for ML",
+        "Model drift monitoring",
+        "Automated retraining"
       ]
     },
     {
-      icon: <Database className="w-8 h-8" />,
-      title: "DATABASES & STORAGE",
+      icon: <Shield className="w-8 h-8" />,
+      title: "AI GOVERNANCE & SECURITY",
       color: "from-orange-500 to-orange-400",
       borderColor: "border-orange-500/30",
       skills: [
-        "MongoDB",
-        "MySQL",
-        "Cassandra",
-        "Vector Databases",
-        "FAISS",
-        "Pinecone",
-        "Weaviate",
-        "NoSQL",
-        "RDBMS"
+        "NIST AI RMF",
+        "EU AI Act",
+        "Responsible-AI policy",
+        "Prompt-injection red-teaming (PyRIT)",
+        "Bias auditing",
+        "Policy-as-code / RBAC",
+        "Model cards & audit trails",
+        "HIPAA / ISO 27001 / GDPR",
+        "MITRE ATT&CK",
+        "CVE / CVSS",
+        "SIEM (Splunk, SentinelOne)",
+        "OSINT & dark web intelligence"
       ]
     },
     {
       icon: <BarChart className="w-8 h-8" />,
-      title: "DATA VISUALIZATION",
+      title: "OBSERVABILITY & EVALUATION",
       color: "from-teal-500 to-teal-400",
       borderColor: "border-teal-500/30",
       skills: [
-        "Plotly",
-        "D3.js",
-        "Tableau",
-        "PowerBI",
         "Langfuse",
-        "HuggingFace",
-        "LlamaIndex",
-        "Data Modeling",
-        "Statistical Analysis"
+        "LangSmith",
+        "Arize",
+        "Ragas",
+        "OpenTelemetry",
+        "LLM-as-judge with calibration",
+        "Trajectory evaluation",
+        "Groundedness & faithfulness",
+        "Golden datasets",
+        "Grafana / Prometheus",
+        "Latency SLOs (<200ms)",
+        "Plotly / D3.js / PowerBI"
+      ]
+    },
+    {
+      icon: <Code className="w-8 h-8" />,
+      title: "ML, DEEP LEARNING & PROGRAMMING",
+      color: "from-orange-500 to-orange-400",
+      borderColor: "border-orange-500/30",
+      skills: [
+        "Python (primary)",
+        "SQL / PySpark",
+        "Java",
+        "FastAPI / WebSockets",
+        "PyTorch",
+        "TensorFlow",
+        "Scikit-Learn",
+        "Transformers",
+        "LSTM / Bi-LSTM / TCN",
+        "Autoencoders",
+        "Isolation Forest / XGBoost",
+        "OpenCV",
+        "Pandas / NumPy / Dask"
+      ]
+    },
+    {
+      icon: <Database className="w-8 h-8" />,
+      title: "DATA & VECTOR STORES",
+      color: "from-teal-500 to-teal-400",
+      borderColor: "border-teal-500/30",
+      skills: [
+        "PostgreSQL (pgvector)",
+        "MongoDB",
+        "Cassandra",
+        "MySQL",
+        "Weaviate",
+        "FAISS",
+        "Pinecone",
+        "BigQuery",
+        "Hadoop / Spark",
+        "ETL/ELT pipelines",
+        "Streaming ingestion",
+        "Synthetic data generation",
+        "Annotation & HITL (Label Studio)"
       ]
     }
   ];
@@ -187,7 +208,7 @@ const Skills = () => {
           </div>
           <p className="text-xl text-muted-foreground font-light max-w-3xl mx-auto leading-relaxed">
             Comprehensive expertise across the <span className="text-orange-400 font-bold">AI/ML technology stack</span> with
-            deep specialization in <span className="text-teal-400 font-bold">cybersecurity applications</span>
+            deep specialization in <span className="text-teal-400 font-bold">agentic AI, LLMOps and AI governance</span>
           </p>
         </div>
 

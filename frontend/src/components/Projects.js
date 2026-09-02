@@ -132,8 +132,8 @@ const Projects = () => {
           </div>
           <p className="text-base sm:text-xl text-muted-foreground font-light max-w-3xl mx-auto leading-relaxed px-4">
             <span className="text-orange-400 font-bold">26 transformative AI/ML projects</span> spanning
-            <span className="text-teal-400 font-bold"> cybersecurity</span>, healthcare, and
-            <span className="text-orange-400 font-bold"> data intelligence</span>
+            <span className="text-teal-400 font-bold"> agentic AI</span>, healthcare enterprise SaaS, and
+            <span className="text-orange-400 font-bold"> cybersecurity</span>
           </p>
         </div>
 

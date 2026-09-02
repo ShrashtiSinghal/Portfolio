@@ -8,11 +8,11 @@ const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const roles = [
-    "AI Engineer",
-    "Chief Data Scientist",
-    "Product Manager",
-    "LLM & RAG Expert",
-    "Cybersecurity Innovator"
+    "AI/ML Architect",
+    "Head of AI",
+    "AI Engineering Manager",
+    "Agentic AI Systems Architect",
+    "MLOps & LLMOps Leader"
   ];
 
   useEffect(() => {
@@ -127,10 +127,10 @@ const Hero = () => {
                 {/* 3D Isometric Description Box - Reduced Shadow */}
                 <div className="isometric-card bg-gradient-to-br from-card/80 to-background/80 backdrop-blur-md border border-teal-500/30 p-6 rounded-xl shadow-md">
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    Accomplished AI Leader with <span className="font-black text-orange-400">12+ years</span> of experience
-                    architecting production-grade AI solutions across <span className="font-bold text-teal-400">cybersecurity</span>,
-                    <span className="font-bold text-teal-400"> healthcare</span>, and
-                    <span className="font-bold text-orange-400"> cloud-native ecosystems</span>.
+                    AI/ML Architect with <span className="font-black text-orange-400">12+ years</span> in AI/ML, shipping
+                    <span className="font-bold text-teal-400"> 10+ production agentic AI systems</span> across
+                    <span className="font-bold text-teal-400"> healthcare</span>,
+                    <span className="font-bold text-orange-400"> cybersecurity</span> and regulated enterprise domains.
                   </p>
                 </div>
               </div>
@@ -203,7 +203,7 @@ const Hero = () => {
                   </div>
 
                   <div className="absolute -right-6 bottom-8 glass-card bg-gradient-to-r from-teal-500/90 to-teal-400/90 backdrop-blur-md text-black px-4 py-3 rounded-xl shadow-md transform rotate-2 animate-float" style={{ animationDelay: '0.5s' }}>
-                    <div className="text-xl font-black">15</div>
+                    <div className="text-xl font-black">26</div>
                     <div className="text-xs font-bold">MAJOR PROJECTS</div>
                   </div>
                 </div>

@@ -38,79 +38,93 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "Chief Data Scientist - Product Manager",
-      subtitle: "AI Engineering Manager",
+      title: "Head of AI | AI Engineering Manager",
+      subtitle: "Chief Data Scientist",
       company: "Culinda Inc.",
       location: "India",
       period: "May 2021 - Present",
       current: true,
       type: "Full-time",
       highlights: [
-        "Leading AI initiatives for healthcare infrastructure vulnerability detection",
-        "Spearheaded development of Night Hawk - Agentic Data Intelligence Platform",
-        "Built AI Security Copilot reducing MTTR by 40%",
-        "Developed ThreatPrism.com - LLM/RAG-based Threat Intelligence Hub",
-        "Achieved 92% threat detection precision, reducing false positives by 25%"
+        "Own end-to-end technical architecture and solution integrity across delivery, guiding cross-functional AI, ML, data-science and full-stack teams",
+        "Architected and shipped 10+ production agentic AI systems across ITSM, CLM, HRMS, asset management, cybersecurity GRC, SOAR and threat intelligence",
+        "Client: Velozent Technologies - VeloDesk, VeloContract, VeloInventory and VeloHr on one shared agentic backbone; 94% ticket routing accuracy, 70% contract review reduction",
+        "DarkEye - converged security intelligence platform (TIP + VRM + ASM + SOAR + GRC); 89% MTTD reduction across 15+ hospital security teams",
+        "Client: Primera Medical Technologies - ThreatPrism, a Virtual CISO and function-calling threat intelligence hub in daily use by a 12-member CTI team",
+        "MLOps/LLMOps at scale - GPU training pipelines, Delta Lake feature stores and Databricks/Airflow orchestration for fine-tuning, evaluation and retraining",
+        "Secured $235K+ in strategic AI partnerships across Anthropic, Microsoft, OpenAI and Google Cloud",
+        "Aligned delivery to NIST AI RMF and the EU AI Act; present AI strategy and roadmap to C-suite and board-level stakeholders"
       ],
-      technologies: ["GPT-4o", "LangChain", "FAISS", "PyTorch", "Splunk", "SentinelOne"]
+      technologies: ["LangGraph", "CrewAI", "OpenAI Agents SDK", "GPT-4o", "Claude", "Databricks", "MLflow", "FastAPI"]
     },
     {
-      title: "Founder/Co-founder",
-      company: "Multiple Startups",
-      subtitle: "NeedyData, DermaAI, Recroid, MagixDB, ChestAI",
+      title: "Co-Founder | CEO-Partnership Ventures",
+      company: "DermaAI \u00b7 Recroid \u00b7 MagixDB",
+      subtitle: "Built alongside active employment at Culinda Inc.",
       location: "India",
-      period: "2020 - 2024",
+      period: "2021 - 2024",
       type: "Entrepreneurship",
       highlights: [
-        "Founded NeedyData - Democratizing data cleaning (Acquired by Canadian firm in 2021)",
-        "Co-founded DermaAI - Skin disease detection platform surpassing dermatologist accuracy",
-        "Built ChestAI - Computer vision for chest disease detection with Yale University",
-        "Created Recroid.com - Automated recruitment with 100% shortlisting accuracy",
-        "Developed MagixDB - Natural language database querying with 100% accuracy"
+        "DermaAI - computer vision diagnostic platform for skin disease detection, from data collection through commercialisation",
+        "Recroid - LLM fine-tuned automated recruitment engine; 100% agreement with the human shortlisting panel on a held-out candidate set",
+        "MagixDB - NLP-powered universal database query engine spanning 25+ database types",
+        "Formal CEO-partnership ventures with full timeline transparency and no conflict with primary responsibilities"
       ],
-      technologies: ["Computer Vision", "LLMs", "Fine-tuning", "Medical Imaging", "NLP"]
+      technologies: ["Computer Vision", "Fine-tuned LLMs", "Q-LoRA", "Databricks", "NLP", "Medical Imaging"]
     },
     {
       title: "AI Advisor",
-      company: "ChestAI, Yale University",
+      company: "ChestIA.com | Yale University",
       location: "USA",
       period: "2022",
       type: "Advisory",
       highlights: [
-        "Partnered with Yale University for AI-driven chest disease detection",
+        "Built ChestIA.com with Yale - computer vision models for chest disease detection from X-ray imaging",
+        "Led hospital onboarding and clinical beta validation",
         "Enhanced model accuracy through advanced image augmentation techniques",
-        "Led hospital onboarding and beta validation processes",
-        "Collaborated with medical professionals for clinical validation"
+        "Collaborated with medical professionals on clinical validation"
       ],
       technologies: ["Medical Imaging", "Computer Vision", "Deep Learning", "Clinical AI"]
     },
     {
-      title: "Data Scientist",
-      company: "Delta Airlines",
-      location: "USA",
-      period: "2019 - 2020",
-      type: "Full-time",
+      title: "Founder",
+      company: "NeedyData",
+      location: "India / USA",
+      period: "Mid-2019 - 2021",
+      type: "Entrepreneurship",
       highlights: [
-        "Optimized national flight schedules using predictive models",
-        "Reduced cascading delays through data-driven planning",
-        "Improved passenger experience and operational efficiency",
-        "Worked with large-scale time-series data and optimization algorithms"
+        "Founded during final UIUC semester; no-code ML-powered data cleaning SaaS",
+        "Self-funded and operated full-time post-graduation",
+        "Acquired by a Canadian firm in 2021"
+      ],
+      technologies: ["ML Pipelines", "No-code SaaS", "Data Quality", "Python"]
+    },
+    {
+      title: "Masters Capstone - Data Science",
+      company: "Delta Airlines (via UIUC)",
+      location: "USA",
+      period: "2019",
+      type: "Capstone",
+      highlights: [
+        "On-site capstone delivered directly to Delta operations teams",
+        "Predictive scheduling models to reduce cascading flight delays",
+        "Worked with large-scale time-series data and optimisation algorithms"
       ],
       technologies: ["Predictive Modeling", "Time Series", "Optimization", "Big Data"]
     },
     {
-      title: "Senior Machine Learning Engineer",
-      company: "Intel Deutschland/LnT Technology Services",
+      title: "Senior Machine Learning Engineer | ML Engineer",
+      company: "Intel Deutschland / LnT Technology Services",
       location: "Germany",
-      period: "2013 - 2017",
+      period: "2012 - 2018",
       type: "Full-time",
       highlights: [
-        "Classified telecommunication logs with 97% accuracy",
-        "Automated log analysis reducing manual work by 3,200 hours/month",
+        "Telecom log classification at 97% accuracy, saving 3,200 person-hours per month",
+        "Large-scale distributed ML pipelines for industrial and telco datasets",
         "Designed scalable database schemas for log processing",
         "Led data ingestion and wrangling initiatives"
       ],
-      technologies: ["Machine Learning", "Data Engineering", "Classification", "Database Design"]
+      technologies: ["Machine Learning", "Distributed Systems", "Classification", "Data Engineering"]
     }
   ];
 
