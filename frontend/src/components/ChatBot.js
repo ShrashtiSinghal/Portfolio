@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MessageCircle, X, Send, Github, Linkedin, Mail, User, ArrowRight } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 
 const ChatBot = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -8,8 +7,8 @@ const ChatBot = () => {
     const [messages, setMessages] = useState([
         {
             type: 'bot',
-            content: "Hi! I'm Shrashti's virtual assistant. How can I help you today?",
-            options: ['Connect with Shrashti', 'View GitHub', 'Send LinkedIn connection request', 'Connect with her on Instagram']
+            content: "Hi! I'm Shrashti's assistant. She's an AI/ML Architect and Head of AI at Culinda Inc., building agentic AI systems for healthcare and regulated enterprise. What would you like to know?",
+            options: ['What does she build?', 'Explore her work', 'Her AI/ML stack', 'Get in touch']
         }
     ]);
     const [currentStep, setCurrentStep] = useState('initial');
@@ -25,53 +24,62 @@ const ChatBot = () => {
         scrollToBottom();
     }, [messages, isTyping]);
 
-    const handleOptionClick = (option) => {
-        const userMessage = { type: 'user', content: option };
-        setMessages(prev => [...prev, userMessage]);
+    const scrollToSection = (id) => {
+        setIsOpen(false);
+        setTimeout(() => {
+            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+    };
 
-        if (option === 'Connect with Shrashti') {
-            setIsTyping(true);
-            setTimeout(() => {
-                setIsTyping(false);
-                setMessages(prev => [...prev, {
-                    type: 'bot',
-                    content: "Great! I'd love to help you connect. First, may I have your name?"
-                }]);
-                setCurrentStep('name');
-            }, 1000);
+    const reply = (content, options, delay = 900) => {
+        setIsTyping(true);
+        setTimeout(() => {
+            setIsTyping(false);
+            setMessages(prev => [...prev, { type: 'bot', content, options }]);
+        }, delay);
+    };
+
+    const handleOptionClick = (option) => {
+        setMessages(prev => [...prev, { type: 'user', content: option }]);
+
+        if (option === 'What does she build?') {
+            reply(
+                "Shrashti architects enterprise GenAI and agentic AI systems — 10+ shipped to production across ITSM, contract lifecycle management, HRMS, asset management and converged security intelligence. Recent results: 94% ticket routing accuracy on VeloDesk, 70% less contract review time on VeloContract, and an 89% MTTD reduction on DarkEye across 15+ hospital security teams.",
+                ['Explore her work', 'Her AI/ML stack', 'Get in touch']
+            );
+        } else if (option === 'Explore her work') {
+            reply(
+                "Taking you to her projects — 26 of them, led by the Velozent product suite. Click any card for the full story, or filter by 'Velo Platform' to see the product family.",
+                ['What does she build?', 'Her AI/ML stack', 'Get in touch'],
+                600
+            );
+            scrollToSection('projects');
+        } else if (option === 'Her AI/ML stack') {
+            reply(
+                "Multi-agent orchestration with LangGraph, CrewAI and the OpenAI Agents SDK; frontier and open-source LLMs (GPT-4o, Claude, Qwen 2.5, DeepSeek-R1, Mistral); RAG and fine-tuning with Q-LoRA; and MLOps/LLMOps on Databricks, Vertex AI and Azure — with governance aligned to NIST AI RMF and the EU AI Act.",
+                ['See the full skills list', 'Her experience', 'Get in touch']
+            );
+        } else if (option === 'See the full skills list') {
+            reply("Scrolling to the skills section.", ['Her experience', 'Explore her work', 'Get in touch'], 500);
+            scrollToSection('skills');
+        } else if (option === 'Her experience') {
+            reply(
+                "12+ years in AI/ML. Currently Head of AI and AI Engineering Manager at Culinda Inc. (since 2021). Before that she founded NeedyData (acquired 2021), co-founded DermaAI, Recroid and MagixDB, advised Yale on ChestIA, and spent six years in ML engineering at Intel Deutschland.",
+                ['Explore her work', 'Her AI/ML stack', 'Get in touch']
+            );
+            scrollToSection('experience');
+        } else if (option === 'Get in touch') {
+            reply("Happy to help you connect. First, may I have your name?");
+            setCurrentStep('name');
         } else if (option === 'View GitHub') {
-            window.open('https://github.com/shrashtisinghal', '_blank');
-            setIsTyping(true);
-            setTimeout(() => {
-                setIsTyping(false);
-                setMessages(prev => [...prev, {
-                    type: 'bot',
-                    content: "I've opened Shrashti's GitHub for you. Is there anything else?",
-                    options: ['Connect with Shrashti', 'Send LinkedIn connection request', 'Connect with her on Instagram']
-                }]);
-            }, 800);
-        } else if (option === 'Send LinkedIn connection request') {
-            window.open('https://www.linkedin.com/in/shrashti-singhal-1869166b/', '_blank');
-            setIsTyping(true);
-            setTimeout(() => {
-                setIsTyping(false);
-                setMessages(prev => [...prev, {
-                    type: 'bot',
-                    content: "I've opened Shrashti's LinkedIn for you. Don't forget to add a personalized note!",
-                    options: ['Connect with Shrashti', 'View GitHub', 'Connect with her on Instagram']
-                }]);
-            }, 800);
-        } else if (option === 'Connect with her on Instagram') {
-            window.open('https://www.instagram.com/shrashtisinghal/', '_blank'); // Assuming handle or placeholder
-            setIsTyping(true);
-            setTimeout(() => {
-                setIsTyping(false);
-                setMessages(prev => [...prev, {
-                    type: 'bot',
-                    content: "I've opened Instagram for you.",
-                    options: ['Connect with Shrashti', 'View GitHub', 'Send LinkedIn connection request']
-                }]);
-            }, 800);
+            window.open('https://github.com/ShrashtiSinghal', '_blank', 'noopener,noreferrer');
+            reply("I've opened her GitHub. Anything else?", ['What does she build?', 'Read her writing', 'Get in touch'], 700);
+        } else if (option === 'Connect on LinkedIn') {
+            window.open('https://www.linkedin.com/in/shrashti-singhal-1869166b/', '_blank', 'noopener,noreferrer');
+            reply("I've opened her LinkedIn — a personalised note always helps.", ['What does she build?', 'View GitHub', 'Get in touch'], 700);
+        } else if (option === 'Read her writing') {
+            window.open('https://medium.com/@shrashtisinghal', '_blank', 'noopener,noreferrer');
+            reply("I've opened her Medium — she writes for Towards Data Science and Towards AI on LLMs and agentic architectures.", ['What does she build?', 'View GitHub', 'Get in touch'], 700);
         }
     };
 
@@ -107,47 +115,21 @@ const ChatBot = () => {
             const updatedFormData = { ...formData, message: inputValue };
             setFormData(updatedFormData);
 
-            // Generate email content
-            const templateParams = {
-                from_name: updatedFormData.name,
-                from_email: updatedFormData.email,
-                message: inputValue,
-                to_email: 'shrashtisinghal@gmail.com'
-            };
+            const subject = encodeURIComponent(`Portfolio enquiry from ${updatedFormData.name}`);
+            const body = encodeURIComponent(
+                `Name: ${updatedFormData.name}\nEmail: ${updatedFormData.email}\n\nMessage:\n${inputValue}`
+            );
 
-            // Attempt to send email via EmailJS
-            // NOTE: You must replace 'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', 'YOUR_PUBLIC_KEY' with your actual EmailJS credentials.
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams, 'YOUR_PUBLIC_KEY')
-                .then((response) => {
-                    console.log('SUCCESS!', response.status, response.text);
-                    setTimeout(() => {
-                        setIsTyping(false);
-                        setMessages(prev => [...prev, {
-                            type: 'bot',
-                            content: "Thanks! I've sent your message directly to Shrashti. She will get back to you shortly."
-                        }]);
-                        setCurrentStep('completed');
-                    }, 1000);
-                })
-                .catch((err) => {
-                    console.log('FAILED...', err);
-                    // Fallback to mailto if EmailJS is not configured or fails
-                    setTimeout(() => {
-                        setIsTyping(false);
-                        setMessages(prev => [...prev, {
-                            type: 'bot',
-                            content: "I couldn't send the email automatically (system configuration needed). I've opened your email client to send it manually!",
-                        }]);
-
-                        const subject = encodeURIComponent(`Portfolio Contact: ${updatedFormData.name}`);
-                        const body = encodeURIComponent(
-                            `Name: ${updatedFormData.name}\nEmail: ${updatedFormData.email}\n\nMessage:\n${inputValue}`
-                        );
-                        window.location.href = `mailto:shrashtisinghal@gmail.com?subject=${subject}&body=${body}`;
-
-                        setCurrentStep('completed');
-                    }, 1000);
-                });
+            setTimeout(() => {
+                setIsTyping(false);
+                setMessages(prev => [...prev, {
+                    type: 'bot',
+                    content: `Thanks, ${updatedFormData.name}! I've opened your email app with the message ready to send — just hit send and it lands in Shrashti's inbox. If nothing opened, write to shrashtisinghal@gmail.com directly.`,
+                    options: ['Connect on LinkedIn', 'View GitHub', 'Explore her work']
+                }]);
+                window.location.href = `mailto:shrashtisinghal@gmail.com?subject=${subject}&body=${body}`;
+                setCurrentStep('completed');
+            }, 900);
         }
     };
 
